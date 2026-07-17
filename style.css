@@ -5813,3 +5813,7 @@ details[open] .badge-locked-summary::before {
 .hpi-rate--done {
   font-weight: 600 !important;
 }
+
+
+/* -- Endur Field -- route map -------------------------------------------- */
+.route-map { display:block; width:100%; height:auto; margin:8px 0 12px; border-radius:10px; background:var(--bg); border:1px solid var(--border); }

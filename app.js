@@ -403,6 +403,7 @@ const TEMPLATES = [
     id: "everest-bc", name: "Everest Base Camp", emoji: "🏔️", category: "expedition",
     description: "Trek 130 km through the Himalayas to the foot of the world's highest peak.",
     duration: 45, weeklyGoal: 5, defaultMode: "soft", routeKm: 130,
+    routeGeo: [[0.08,0.85],[0.2,0.78],[0.32,0.72],[0.45,0.6],[0.55,0.52],[0.68,0.4],[0.8,0.28],[0.9,0.16]],
     milestones: [
       { km: 10,  name: "Phakding",          emoji: "🏡" },
       { km: 40,  name: "Namche Bazaar",      emoji: "🏙️" },
@@ -420,6 +421,7 @@ const TEMPLATES = [
     id: "west-highland-way", name: "West Highland Way", emoji: "🌄", category: "expedition",
     description: "Walk 154 km through the Scottish Highlands from Milngavie to Fort William — lochs, glens, and mountain passes.",
     duration: 30, weeklyGoal: 5, defaultMode: "soft", routeKm: 154,
+    routeGeo: [[0.5,0.92],[0.44,0.78],[0.54,0.66],[0.46,0.54],[0.56,0.42],[0.48,0.3],[0.52,0.14]],
     milestones: [
       { km: 20,  name: "Balmaha",        emoji: "🌊" },
       { km: 50,  name: "Inverarnan",     emoji: "🏞️" },
@@ -471,12 +473,13 @@ const TEMPLATES = [
     id: "camino", name: "Camino de Santiago", emoji: "⛪", category: "expedition",
     description: "Walk 790 km across Spain on the ancient pilgrimage route to Santiago de Compostela.",
     duration: 90, weeklyGoal: 5, defaultMode: "soft", routeKm: 790,
+    routeGeo: [[0.05,0.55],[0.15,0.47],[0.25,0.58],[0.35,0.5],[0.45,0.63],[0.55,0.52],[0.65,0.6],[0.75,0.44],[0.85,0.52],[0.95,0.4]],
     milestones: [
-      { km: 75,  name: "Pamplona",               emoji: "🏟️" },
-      { km: 250, name: "Burgos",                  emoji: "🏰" },
-      { km: 400, name: "León",                    emoji: "🦁" },
-      { km: 590, name: "Ponferrada",              emoji: "🏯" },
-      { km: 790, name: "Santiago de Compostela",  emoji: "⛪" },
+      { km: 75,  name: "Pamplona",               blurb: "The first city on the way — your opening stretch is behind you." },
+      { km: 250, name: "Burgos",                  blurb: "Its Gothic cathedral marks the edge of the meseta, the high plains ahead." },
+      { km: 400, name: "León",                    blurb: "Halfway and then some. The westward push begins in earnest." },
+      { km: 590, name: "Ponferrada",             blurb: "A Templar castle guards the road as the green hills of Galicia rise." },
+      { km: 790, name: "Santiago de Compostela",  blurb: "The cathedral square. The pilgrim's arrival — you walked the whole way." },
     ],
     habits: [
       { id:"dist",      title:"Log distance",  emoji:"🚶", quip:"Every step brings you closer to Santiago.", type:"distance", points:1, unit:"km" },
@@ -488,6 +491,7 @@ const TEMPLATES = [
     id: "appalachian", name: "Appalachian Trail", emoji: "🌲", category: "expedition",
     description: "Hike the full 3,540 km from Georgia to Maine — one of the world's great long trails.",
     duration: 365, weeklyGoal: 5, defaultMode: "soft", routeKm: 3540,
+    routeGeo: [[0.45,0.95],[0.52,0.82],[0.43,0.7],[0.55,0.58],[0.46,0.46],[0.56,0.34],[0.47,0.22],[0.53,0.08]],
     milestones: [
       { km: 300,  name: "Shenandoah Valley",    emoji: "🌿" },
       { km: 900,  name: "Pennsylvania",          emoji: "🪨" },
@@ -522,6 +526,7 @@ const TEMPLATES = [
     id: "route66", name: "Route 66", emoji: "🚗", category: "expedition",
     description: "Travel the 3,940 km Mother Road from Chicago, Illinois to Santa Monica, California.",
     duration: 180, weeklyGoal: 5, defaultMode: "soft", routeKm: 3940,
+    routeGeo: [[0.9,0.15],[0.78,0.28],[0.68,0.35],[0.55,0.45],[0.42,0.5],[0.3,0.62],[0.18,0.72],[0.08,0.82]],
     milestones: [
       { km: 500,  name: "Springfield, IL",   emoji: "🌽" },
       { km: 1100, name: "Oklahoma City",      emoji: "🏙️" },
@@ -556,6 +561,7 @@ const TEMPLATES = [
     id: "pct", name: "Pacific Crest Trail", emoji: "🌲", category: "expedition",
     description: "Walk 4,286 km from the Mexican border to the Canadian border — through the Sierra Nevada and Cascades. 5 months. No shortcuts.",
     duration: 150, weeklyGoal: 5, defaultMode: "soft", routeKm: 4286,
+    routeGeo: [[0.5,0.95],[0.42,0.82],[0.55,0.7],[0.45,0.58],[0.58,0.46],[0.44,0.34],[0.52,0.22],[0.46,0.08]],
     milestones: [
       { km:  160, name: "San Diego foothills", emoji: "🌵" },
       { km:  700, name: "Los Angeles area",    emoji: "🌆" },
@@ -3165,16 +3171,32 @@ function renderRouteProgress(challenge, template) {
     const mDisplay = Math.round(m.km * factor * 10) / 10;
     return `<div class="route-milestone-dot ${done?"done":""}" style="left:${mPct}%" title="${m.name} (${mDisplay} ${displayUnit})"></div>`;
   }).join("");
+  const routeMap = template?.routeGeo ? (() => {
+    const W=320, H=170, PAD=18;
+    const pts = template.routeGeo.map(p => [PAD + p[0]*(W-2*PAD), PAD + p[1]*(H-2*PAD)]);
+    const seg=[], cum=[0];
+    for (let i=0;i<pts.length-1;i++){ const s=Math.hypot(pts[i+1][0]-pts[i][0], pts[i+1][1]-pts[i][1]); seg.push(s); cum.push(cum[i]+s); }
+    const totLen = cum[cum.length-1] || 1;
+    const at = t => { let d=Math.max(0,Math.min(1,t))*totLen; for(let i=0;i<seg.length;i++){ if(d<=cum[i+1]||i===seg.length-1){ const f=seg[i]?(d-cum[i])/seg[i]:0; return [pts[i][0]+(pts[i+1][0]-pts[i][0])*f, pts[i][1]+(pts[i+1][1]-pts[i][1])*f]; } } return pts[pts.length-1]; };
+    const dPath = "M " + pts.map(p=>`${p[0].toFixed(1)} ${p[1].toFixed(1)}`).join(" L ");
+    const prog = Math.min(1, totalNative/routeNative);
+    const dots = milestones.map(m => { const [x,y]=at(Math.min(1,m.km/routeNative)); const done=totalNative>=m.km; return `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="3.2" fill="${done?'var(--accent)':'#3a3a3e'}" stroke="var(--bg)" stroke-width="1.5"/>`; }).join("");
+    const [sx,sy]=pts[0], [mx,my]=at(prog);
+    return `<svg class="route-map" viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Route progress map">
+      <path d="${dPath}" fill="none" stroke="#2a2a2e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="${dPath}" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="${(prog*totLen).toFixed(1)} ${totLen.toFixed(1)}"/>
+      ${dots}
+      <circle cx="${sx.toFixed(1)}" cy="${sy.toFixed(1)}" r="2.5" fill="var(--text-dim)"/>
+      <circle cx="${mx.toFixed(1)}" cy="${my.toFixed(1)}" r="6" fill="var(--accent)" stroke="var(--bg)" stroke-width="2.5"/>
+    </svg>`;
+  })() : `<div class="route-progress-track"><div class="route-progress-fill" style="width:${pct}%"></div>${markers}</div>`;
   return `
   <section class="route-progress-section panel">
     <div class="route-progress-header">
       <span class="route-progress-name"><i class="ti ${template?challengeIcon(template):"ti-map-2"}"></i> ${template?.name ?? challenge.name}</span>
       <span class="route-progress-km">${isFloors ? Math.round(totalDisplay) : totalDisplay.toFixed(1)} <span style="font-weight:500;color:var(--text-dim)">/ ${isFloors ? Math.round(routeDisplay).toLocaleString() : routeDisplay.toLocaleString()} ${displayUnit}</span></span>
     </div>
-    <div class="route-progress-track">
-      <div class="route-progress-fill" style="width:${pct}%"></div>
-      ${markers}
-    </div>
+    ${routeMap}
     <div class="route-pace">
       ${remaining > 0
         ? `${isFloors ? Math.round(remaining) : remaining.toFixed(1)} ${displayUnit} remaining${next ? ` · next: ${next.name}` : ""}`
@@ -3185,7 +3207,7 @@ function renderRouteProgress(challenge, template) {
       <span class="rmb-emoji"><i class="ti ti-flag"></i></span>
       <div>
         <div class="rmb-title">${reached.name}</div>
-        <div class="rmb-sub">${Math.round(reached.km * factor * 10) / 10} ${displayUnit} checkpoint reached</div>
+        <div class="rmb-sub">${reached.blurb ? esc(reached.blurb) : `${Math.round(reached.km * factor * 10) / 10} ${displayUnit} checkpoint reached`}</div>
       </div>
     </div>` : ""}
   </section>`;
