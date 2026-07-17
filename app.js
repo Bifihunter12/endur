@@ -232,21 +232,22 @@ const DIFF_COLOR = { beginner:"#4caf50", intermediate:"#ff9800", advanced:"#f443
 
 // Safety warnings for high-risk or health-sensitive challenges
 const TEMPLATE_SAFETY = {
-  "intermittent-fasting": "Not suitable if you are pregnant, have a history of eating disorders, take diabetes medication, or have any chronic illness. Consult your doctor before starting.",
-  "cold-exposure": "Never combine breathwork with cold water immersion; there is a risk of fainting or drowning. Breathe normally during cold showers or plunges. Start gradually and consult your doctor first if you have cardiovascular, respiratory, or circulatory conditions.",
-  "75-hard": "Two daily workouts plus strict dieting can create high injury and burnout risk if untrained. Treat this as self-paced and get medical clearance if you have pre-existing health conditions.",
-  "blood-pressure": "Tracking only; this does not replace medical care. If readings are high or you have symptoms such as chest pain, headache, or dizziness, seek medical care immediately.",
-  "glucose-control": "Tracking only. Never adjust medication or insulin based on app readings. Always consult your healthcare provider.",
-  "hydration": "Personalise your target to your size and climate. Do not exceed 3-4L per day without medical guidance; excess water can cause hyponatremia.",
-  "marathon-training": "High-volume running can increase injury risk. This app is a self-paced tracker: repeat days, reduce volume, pause, or seek coaching as needed. Consult a doctor before starting if you have cardiovascular or joint conditions.",
-  "ironman-703": "High swim/bike/run volume. Medical clearance is recommended. Use this app at your own pace and scale sessions to your current fitness and recovery.",
-  "ironman-full": "Very high endurance load. Medical clearance is strongly recommended. Progress gradually, repeat weeks, and stop if symptoms or injury signs appear.",
-  "tough-mudder": "Obstacle events can include cold water, heights, electrical obstacles, carries, and contact elements. Train within your ability and consult a doctor if you have cardiovascular, joint, seizure, or cold-sensitivity conditions.",
-  "spartan-race": "Obstacle racing can involve heavy carries, climbing, jumping, heat, terrain, and high intensity. Scale training to your ability and consult a doctor if you have cardiovascular, joint, or back conditions.",
-  "cruise-control": "Intense multi-task daily protocol. Not suitable if you have joint issues, cardiovascular conditions, or are new to exercise.",
-  "swim-1k": "Swimming carries drowning risk. Swim in a supervised pool when possible, stop if dizzy or short of breath, and get medical advice if you have heart, respiratory, or seizure conditions.",
-  "open-water-prep": "Open-water swimming adds risks from cold, currents, boats, weather, visibility, and panic. Never swim alone; use a buddy or supervised venue, check conditions, and wear appropriate safety gear.",
-  "hyrox": "High-intensity functional fitness with heavy sleds, carries, and running. Use your own pace, progress loads gradually, and consult a doctor before starting if you have cardiovascular, joint, or lower-back conditions.",
+  "everest-bc": "A long cumulative trek. Build distance up gradually and rest freely; the total is what matters, not daily maximums. Never make up missed distance in one effort. On real outings, mind weather and terrain.",
+  "everest-stairmaster": "A huge cumulative climb. Log stairs or elevation progressively; do not try to bank it all at once. Warm up, hydrate, and stop if you feel dizzy or breathless. Build it up over the weeks.",
+  "kilimanjaro-stairmaster": "A huge cumulative climb. Log stairs or elevation progressively; do not try to bank it all at once. Warm up, hydrate, and stop if you feel dizzy or breathless. Build it up over the weeks.",
+  "montblanc-stairmaster": "A huge cumulative climb. Log stairs or elevation progressively; do not try to bank it all at once. Warm up, hydrate, and stop if you feel dizzy or breathless. Build it up over the weeks.",
+  "utmb": "A large cumulative distance. Build up gradually and rest freely; never try to make up missed distance in a single effort. The total is what matters, not daily maximums. If you log real outdoor activity, mind weather, traffic, and your own limits.",
+  "comrades-ultra": "A large cumulative distance. Build up gradually and rest freely; never try to make up missed distance in a single effort. The total is what matters, not daily maximums. If you log real outdoor activity, mind weather, traffic, and your own limits.",
+  "run-5-marathons": "A large cumulative distance. Build up gradually and rest freely; never try to make up missed distance in a single effort. The total is what matters, not daily maximums. If you log real outdoor activity, mind weather, traffic, and your own limits.",
+  "run-jogle": "A large cumulative distance. Build up gradually and rest freely; never try to make up missed distance in a single effort. The total is what matters, not daily maximums. If you log real outdoor activity, mind weather, traffic, and your own limits.",
+  "run-trans-america": "A large cumulative distance. Build up gradually and rest freely; never try to make up missed distance in a single effort. The total is what matters, not daily maximums. If you log real outdoor activity, mind weather, traffic, and your own limits.",
+  "appalachian": "A large cumulative distance. Build up gradually and rest freely; never try to make up missed distance in a single effort. The total is what matters, not daily maximums. If you log real outdoor activity, mind weather, traffic, and your own limits.",
+  "pct": "A large cumulative distance. Build up gradually and rest freely; never try to make up missed distance in a single effort. The total is what matters, not daily maximums. If you log real outdoor activity, mind weather, traffic, and your own limits.",
+  "trans-am-bike": "A very long cumulative ride. Build up gradually and rest freely; never cram missed distance into one session. On the road, mind traffic, weather, and visibility.",
+  "tour-de-france": "A very long cumulative ride. Build up gradually and rest freely; never cram missed distance into one session. On the road, mind traffic, weather, and visibility.",
+  "raid-pyrenees": "A very long cumulative ride. Build up gradually and rest freely; never cram missed distance into one session. On the road, mind traffic, weather, and visibility.",
+  "amazon-river": "A very long cumulative distance. Build up gradually and rest freely. On real water, always wear a buoyancy aid, check conditions, and do not row alone in unfamiliar water.",
+  "danube-row": "A very long cumulative distance. Build up gradually and rest freely. On real water, always wear a buoyancy aid, check conditions, and do not row alone in unfamiliar water.",
 };
 
 // Challenge template → tier
@@ -3183,6 +3184,8 @@ function renderRouteProgress(challenge, template) {
   const milestones = template?.milestones ?? [];
   const reached = [...milestones].reverse().find(m => totalNative >= m.km);
   const next    = milestones.find(m => totalNative < m.km);
+  const daysLeftR  = challenge.noEndDate ? null : Math.max(0, diffDays(todayKey(), challenge.endDate));
+  const needPerDay = (daysLeftR && remaining > 0) ? Math.ceil((remaining / daysLeftR) * 10) / 10 : null;
   const markers = milestones.map(m => {
     const mPct = Math.round((m.km / routeNative) * 100);
     const done  = totalNative >= m.km;
@@ -3217,7 +3220,7 @@ function renderRouteProgress(challenge, template) {
     ${routeMap}
     <div class="route-pace">
       ${remaining > 0
-        ? `${isFloors ? Math.round(remaining) : remaining.toFixed(1)} ${displayUnit} remaining${next ? ` · next: ${next.name}` : ""}`
+        ? `${isFloors ? Math.round(remaining) : remaining.toFixed(1)} ${displayUnit} remaining${next ? ` · next: ${next.name}` : ""}${needPerDay ? ` · ${needPerDay} ${displayUnit}/day to finish` : ""}`
          : `${isFloors ? "Summit reached" : "Route complete"}. You conquered ${template.name}.`}
     </div>
     ${reached && totalNative > 0 ? `
@@ -3227,6 +3230,11 @@ function renderRouteProgress(challenge, template) {
         <div class="rmb-title">${reached.name}</div>
         <div class="rmb-sub">${reached.blurb ? esc(reached.blurb) : `${Math.round(reached.km * factor * 10) / 10} ${displayUnit} checkpoint reached`}</div>
       </div>
+    </div>` : ""}
+    ${!challenge.noEndDate && remaining > 0 && daysLeftR !== null && daysLeftR <= 10 ? `
+    <div class="route-extend">
+      <span>${daysLeftR === 0 ? "Deadline's here — no rush, take the time you need." : `${daysLeftR} day${daysLeftR===1?"":"s"} left. No pressure — move at your pace.`}</span>
+      <button class="link-btn" data-extend-challenge="${challenge.id}">Extend +2 weeks</button>
     </div>` : ""}
   </section>`;
 }
@@ -3904,6 +3912,7 @@ function renderChallengeDetail(c) {
     <div style="margin-top:16px;display:flex;gap:8px;flex-wrap:wrap">
       ${c.status==="active"?`<button class="secondary-button" data-edit-challenge="${c.id}"><i class="ti ti-pencil"></i> Edit</button>`:""}
       <button class="secondary-button" data-pause-challenge="${c.id}">${c.status==="paused"?`<i class="ti ti-player-play"></i> Resume`:`<i class="ti ti-player-pause"></i> Pause`}</button>
+      ${(c.status==="active"&&!c.noEndDate)?`<button class="secondary-button" data-extend-challenge="${c.id}"><i class="ti ti-calendar-plus"></i> Extend +2 weeks</button>`:""}
       <button class="secondary-button danger" data-abandon-challenge="${c.id}">Abandon</button>
     </div>`:""}
     ${(c.status==="completed"||c.status==="failed")?`
@@ -5871,6 +5880,7 @@ function bindEvents() {
     render();
   });
   on("[data-pause-challenge]",        el => pauseChallenge(el.dataset.pauseChallenge));
+  on("[data-extend-challenge]",       el => extendChallenge(el.dataset.extendChallenge, 14));
   on("[data-abandon-challenge]",      el => abandonChallenge(el.dataset.abandonChallenge));
   on("[data-request-notif-permission]",  () => requestNotificationPermission());
   on("[data-toggle-reminder]",        el => {
@@ -6592,6 +6602,16 @@ function saveEditChallenge() {
   viewChallengeId = c.id;
   showToast("Challenge updated ✓");
   render();
+}
+
+function extendChallenge(id, days) {
+  const c = getChallenge(id); if (!c || c.noEndDate) return;
+  const base = c.endDate < todayKey() ? todayKey() : c.endDate;
+  c.endDate = addDays(base, days);
+  const rk = challengeRouteKm(c);
+  if (c.status === "completed" && rk && challengeTotalKm(c) < rk) { c.status = "active"; delete c.completedAt; }
+  showToast(`Deadline extended by ${days} days.`);
+  saveState(); render();
 }
 
 function pauseChallenge(id) {
