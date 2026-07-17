@@ -328,62 +328,74 @@ const BADGE_TIERS = {
 
 const TEMPLATES = [
   {
-    id: "dog-walk", name: "Dog Walk Challenge", emoji: "🐕", category: "movement",
-    description: "30 days of daily walks with your dog. Fresh air, consistency, and happy paws.",
-    duration: 30, weeklyGoal: 75, defaultMode: "soft",
+    id: "dog-walk", name: "The Great Dog Walk", emoji: "🐕", category: "movement",
+    description: "Rack up 100 km on foot with your dog — one walk at a time. Log every kilometre and watch it add up.",
+    duration: 60, weeklyGoal: 5, defaultMode: "soft", routeKm: 100,
+    milestones: [
+      { km: 25,  name: "25 km" },
+      { km: 50,  name: "Halfway — 50 km" },
+      { km: 75,  name: "75 km" },
+      { km: 100, name: "100 km — done" },
+    ],
     habits: [
-      { id:"dw-walk",    title:"Morning walk",              emoji:"🌅", quip:"Start the day right — both of you.", type:"binary", points:3 },
-      { id:"dw-dist",    title:"Log walk distance",         emoji:"📍", quip:"Short is fine. Going is everything.", type:"tiered", points:2,
-        tiers:[{value:1,label:"1 km",points:2},{value:2,label:"2 km",points:3},{value:4,label:"4 km",points:4},{value:6,label:"6 km+",points:6}] },
-      { id:"dw-evening", title:"Evening walk",              emoji:"🌆", quip:"Wind down together.",               type:"binary", points:2 },
-      { id:"dw-water",   title:"Fresh water for your dog",  emoji:"💧", quip:"Hydration matters for them too.",   type:"binary", points:1 },
-    ]
+      { id:"dist", title:"Log distance", emoji:"🐕", quip:"Every kilometre counts.", type:"distance", points:1, unit:"km" },
+    ],
   },
   {
-    id: "cycling", name: "Cycling Challenge", emoji: "🚴", category: "movement",
-    description: "30 days in the saddle. Build endurance, torch calories, go farther than yesterday.",
-    duration: 30, weeklyGoal: 90, defaultMode: "soft",
+    id: "cycling", name: "Ride 200", emoji: "🚴", category: "movement",
+    description: "Cover 200 km in the saddle. Every ride moves you closer to the finish.",
+    duration: 45, weeklyGoal: 5, defaultMode: "soft", routeKm: 200,
+    milestones: [
+      { km: 50,  name: "50 km" },
+      { km: 100, name: "Halfway — 100 km" },
+      { km: 150, name: "150 km" },
+      { km: 200, name: "200 km — done" },
+    ],
     habits: [
-      { id:"cy-ride",    title:"Bike ride",                 emoji:"🚲", quip:"Clip in. Show up.",                  type:"tiered", points:3,
-        tiers:[{value:5,label:"5 km",points:3},{value:15,label:"15 km",points:4},{value:30,label:"30 km",points:6},{value:50,label:"50 km+",points:9}] },
-      { id:"cy-stretch", title:"Stretch & recover",         emoji:"🦵", quip:"The ride you can do tomorrow depends on this.", type:"binary", points:2 },
-      { id:"cy-log",     title:"Log distance or time",      emoji:"📊", quip:"Track it. Every session tells a story.",        type:"binary", points:1 },
-    ]
+      { id:"dist", title:"Log distance", emoji:"🚴", quip:"Clip in. Every km counts.", type:"distance", points:1, unit:"km" },
+    ],
   },
   {
-    id: "walking", name: "Walking Challenge", emoji: "🚶", category: "movement",
-    description: "30 days of daily walking. The simplest habit with the biggest returns.",
-    duration: 30, weeklyGoal: 50, defaultMode: "soft",
+    id: "walking", name: "Walk 100", emoji: "🚶", category: "movement",
+    description: "Walk 100 km, one outing at a time. The simplest mission with the biggest payoff.",
+    duration: 60, weeklyGoal: 5, defaultMode: "soft", routeKm: 100,
+    milestones: [
+      { km: 25,  name: "25 km" },
+      { km: 50,  name: "Halfway — 50 km" },
+      { km: 75,  name: "75 km" },
+      { km: 100, name: "100 km — done" },
+    ],
     habits: [
-      { id:"wk-dist",    title:"Daily walk",                emoji:"👟", quip:"Every step counts.",                 type:"tiered", points:2,
-        tiers:[{value:2,label:"2 km",points:2},{value:5,label:"5 km",points:3},{value:8,label:"8 km",points:4},{value:10,label:"10 km+",points:6}] },
-      { id:"wk-pace",    title:"Brisk pace segment",          emoji:"?", quip:"Add 5-10 minutes where breathing gets heavier.", type:"binary", points:2 },
-      { id:"wk-stairs",  title:"Take the stairs all day",   emoji:"🏢", quip:"Small choices add up.",             type:"binary", points:1 },
-    ]
+      { id:"dist", title:"Log distance", emoji:"🚶", quip:"Every step counts.", type:"distance", points:1, unit:"km" },
+    ],
   },
   {
-    id: "running", name: "Running Challenge", emoji: "🏃", category: "movement",
-    description: "30 days of running. Build the habit, find the pace, feel the difference. Flexible pacing is encouraged — 4–5 sessions per week is plenty and helps prevent injury.",
-    duration: 30, weeklyGoal: 80, defaultMode: "soft",
+    id: "running", name: "Run 50", emoji: "🏃", category: "movement",
+    description: "Bank 50 km of running across the weeks. Rest days welcome — the total is what matters.",
+    duration: 45, weeklyGoal: 5, defaultMode: "soft", routeKm: 50,
+    milestones: [
+      { km: 10, name: "10 km" },
+      { km: 25, name: "Halfway — 25 km" },
+      { km: 40, name: "40 km" },
+      { km: 50, name: "50 km — done" },
+    ],
     habits: [
-      { id:"rn-run",     title:"Run session",               emoji:"👟", quip:"Shoes on. Door open. Go.",           type:"tiered", points:3,
-        tiers:[{value:1,label:"1 km",points:3},{value:3,label:"3 km",points:4},{value:5,label:"5 km",points:6},{value:10,label:"10 km+",points:9}] },
-      { id:"rn-log",     title:"Log your mileage",          emoji:"📊", quip:"What gets tracked gets improved.",   type:"binary", points:1 },
-      { id:"rn-stretch", title:"Post-run stretch",          emoji:"🧘", quip:"Skipping this is how injuries happen.", type:"binary", points:2 },
-    ]
+      { id:"dist", title:"Log distance", emoji:"🏃", quip:"Shoes on. Every km counts.", type:"distance", points:1, unit:"km" },
+    ],
   },
-
-  // ── Endurance Sport Training ─────────────────────────────────────────────
   {
-    id: "zone2", name: "Zone 2 Base Builder", emoji: "💚", category: "endurance",
-    description: "30 days of low-intensity cardio at conversational pace. The aerobic foundation that makes every other fitness goal easier.",
-    duration: 30, weeklyGoal: 65, defaultMode: "soft",
+    id: "zone2", name: "Zone 2: 10 Hours", emoji: "💚", category: "endurance",
+    description: "Bank 10 hours of easy, conversational-pace cardio — the aerobic base that makes everything else easier.",
+    duration: 45, weeklyGoal: 5, defaultMode: "soft", routeKm: 10,
+    milestones: [
+      { km: 2.5, name: "2.5 hrs" },
+      { km: 5,   name: "Halfway — 5 hrs" },
+      { km: 7.5, name: "7.5 hrs" },
+      { km: 10,  name: "10 hrs — done" },
+    ],
     habits: [
-      { id:"z2-session",  title:"Zone 2 session",            emoji:"💚", quip:"Conversational pace. Nasal breathing. 30–60 min.", type:"tiered", points:5,
-        tiers:[{label:"20–30 min",pts:5},{label:"30–45 min",pts:7},{label:"45–60 min",pts:9}] },
-      { id:"z2-check",    title:"Zone 2 effort check",        emoji:"🗣️", quip:"Could you hold a conversation? If not, slow down next time.", type:"binary", points:1 },
-      { id:"z2-mobility", title:"Mobility (5 min)",           emoji:"🧘", quip:"Keep the body feeling good as volume builds.",            type:"binary", points:2 },
-    ]
+      { id:"time", title:"Log time", emoji:"⏱️", quip:"Every session counts.", type:"distance", points:1, unit:"hours" },
+    ],
   },
 
   // ── Expedition Routes ────────────────────────────────────────────────────
@@ -2610,10 +2622,23 @@ function renderToday() {
         ${(() => { const tp = challenge.templateId ? TEMPLATES.find(t=>t.id===challenge.templateId) : null; return `<i class="ti ${tp?challengeIcon(tp):"ti-target"} hero-ic" aria-hidden="true"></i>`; })()}
         <h1 class="hero-name">${esc(challenge.name)}</h1>
       </div>
-      ${journeyPct !== null ? `<div class="journey-track"><div class="journey-fill" style="width:${journeyPct}%"></div></div>` : ""}
+      ${(() => {
+        const dh = challenge.habits.find(h => h.type === "distance");
+        const ck = dh ? challengeRouteKm(challenge) : null;
+        const barPct = (dh && ck) ? Math.min(100, Math.round(challengeTotalKm(challenge)/ck*100)) : journeyPct;
+        return barPct !== null ? `<div class="journey-track"><div class="journey-fill" style="width:${barPct}%"></div></div>` : "";
+      })()}
       <div class="hero-stats">
-        ${journeyPct !== null ? `<span>${journeyPct}%</span><span class="hero-stat-dot">·</span>` : ""}
-        ${streak > 0 && isToday ? `<span><i class="ti ti-flame"></i> ${streak} day streak</span><span class="hero-stat-dot">·</span>` : ""}
+        ${(() => {
+          const dh = challenge.habits.find(h => h.type === "distance");
+          const ck = dh ? challengeRouteKm(challenge) : null;
+          if (dh && ck) {
+            const tot = challengeTotalKm(challenge), u = unitLabelFor(dh.unit);
+            const pct = Math.min(100, Math.round(tot/ck*100)), rem = Math.round(Math.max(0, ck-tot)*10)/10;
+            return `<span>${pct}%</span><span class="hero-stat-dot">·</span><span>${tot} ${u} banked</span><span class="hero-stat-dot">·</span><span>${rem} ${u} to go</span><span class="hero-stat-dot">·</span>`;
+          }
+          return journeyPct !== null ? `<span>${journeyPct}%</span><span class="hero-stat-dot">·</span>` : "";
+        })()}
         <span>${challenge.noEndDate ? "Ongoing" : daysLeft > 0 ? daysLeft+" days left" : "Final day"}</span>
         ${phaseInfo ? `<span class="hero-stat-dot">·</span><span>${esc(phaseInfo.phase.name)}</span>` : ""}
         ${isToday ? `<button class="link-btn hero-settings-link" data-view-challenge="${challenge.id}">Edit</button>` : ""}
@@ -2791,7 +2816,7 @@ function renderNoChallenge() {
           <div class="cc-emoji"><i class="ti ${iconForChallenge(c)}"></i></div>
           <div class="cc-info">
             <div class="cc-name">${c.name}</div>
-            <div class="cc-meta">Starts ${c.startDate} � ${diffDays(today, c.startDate)} day${diffDays(today,c.startDate)===1?"":"s"} away</div>
+            <div class="cc-meta">Starts ${c.startDate} � ${diffDays(today, c.startDate)} day${diffDays(today,c.startDate)===1?"":"s"} away</div>
           </div>
           <div class="cc-right"><div class="cc-status" style="color:var(--text-dim)">upcoming</div></div>
         </div>
@@ -2819,7 +2844,7 @@ function renderRing(info, day, streak, challenge) {
   // Unit conversion for ring display
   const ringDistHabit = isExpedition ? challenge.habits.find(h => h.type === "distance") : null;
   const ringIsFloors  = ringDistHabit?.unit === "floors";
-  const ringDUnit     = ringIsFloors ? "floors" : (state.settings.units.distance === "miles" ? "mi" : "km");
+  const ringDUnit     = unitLabelFor(ringDistHabit?.unit);
   const ringFactor    = ringDUnit === "mi" ? 0.621371 : 1;
   const todayKmD      = todayKmRaw !== null ? Math.round(todayKmRaw * ringFactor * 100) / 100 : null;
   const totalKmD      = totalKmNative !== null ? Math.round(totalKmNative * ringFactor * 10) / 10 : null;
@@ -2919,10 +2944,10 @@ function renderModeSelector(day, challenge) {
   </div>`;
   }
   const restLabel = todayIsRest
-    ? "Flex Day � active"
+    ? "Flex Day � active"
     : budgetExhausted
-      ? `Flex Day � none left`
-      : `Flex Day � ${jokersLeft} flex ${jokersLeft === 1 ? "day" : "days"} left`;
+      ? `Flex Day � none left`
+      : `Flex Day � ${jokersLeft} flex ${jokersLeft === 1 ? "day" : "days"} left`;
   const restDisabled = budgetExhausted ? "mode-chip--disabled" : "";
   const activeChip   = todayIsRest ? "mode-chip--rest-active" : "mode-chip--active";
   return `
@@ -2997,6 +3022,12 @@ function renderTieredHabit(habit, day, challenge) {
   </div>`;
 }
 
+function unitLabelFor(u) {
+  if (u === "floors") return "floors";
+  if (u === "hours") return "hrs";
+  return (state.settings.units.distance === "miles") ? "mi" : "km";
+}
+
 function renderDistanceHabit(habit, day, challenge) {
   const locked    = day.mode === "rest";
   const storedVal = day.distances?.[habit.id] ?? 0; // always in habit's native unit
@@ -3006,7 +3037,7 @@ function renderDistanceHabit(habit, day, challenge) {
   const MI_PER_KM  = 0.621371;
   const KM_PER_MI  = 1.60934;
   const globalDist = state.settings.units.distance || "km";
-  const displayUnit = isFloors ? "floors" : (globalDist === "miles" ? "mi" : "km");
+  const displayUnit = unitLabelFor(habitUnit);
   // Convert stored km → display unit for input value
   const displayVal = isFloors ? Math.round(storedVal) :
     (displayUnit === "mi" ? Math.round(storedVal * MI_PER_KM * 100) / 100 : storedVal);
@@ -3054,6 +3085,7 @@ function renderDistanceHabit(habit, day, challenge) {
         inputmode="decimal" aria-label="Distance in ${displayUnit}">
       ${isFloors
         ? `<span class="distance-unit">floors</span>`
+        : habitUnit === "hours" ? `<span class="distance-unit">hrs</span>`
         : `<select class="dist-unit-sel" data-dist-unit-sel="${habit.id}" aria-label="Unit">
              <option value="km" ${displayUnit==="km"?"selected":""}>km</option>
              <option value="mi" ${displayUnit==="mi"?"selected":""}>mi</option>
@@ -3118,7 +3150,7 @@ function renderRouteProgress(challenge, template) {
   const isFloors    = habitUnit === "floors";
   const MI_PER_KM   = 0.621371;
   const globalDist  = state.settings.units.distance || "km";
-  const displayUnit = isFloors ? "floors" : (globalDist === "miles" ? "mi" : "km");
+  const displayUnit = unitLabelFor(habitUnit);
   const factor      = (displayUnit === "mi") ? MI_PER_KM : 1;
   const totalDisplay = Math.round(totalNative * factor * 10) / 10;
   const routeDisplay = Math.round(routeNative * factor * 10) / 10;
@@ -3210,7 +3242,7 @@ function renderCompleteBanner(day, info, challenge, dayNumber, totalDays, isToda
     const isFloors   = habitUnit === "floors";
     const MI_PER_KM  = 0.621371;
     const globalDist = state.settings.units.distance || "km";
-    const dUnit      = isFloors ? "floors" : (globalDist === "miles" ? "mi" : "km");
+    const dUnit      = unitLabelFor(habitUnit);
     const factor     = (dUnit === "mi") ? MI_PER_KM : 1;
     const todayNative = Object.values(day.distances || {}).reduce((s,v) => s + (Number(v)||0), 0);
     const totalNative = challengeTotalKm(challenge);
@@ -3452,8 +3484,8 @@ function drawShareCard(challenge, isDone) {
   const dayNum     = challengeDayNumber(challenge);
   const totalDays  = diffDays(challenge.startDate, challenge.endDate) + 1;
   const statLine = isDone
-    ? `${totalDays} days � ${totalPts} pts � ${streak}-day streak`
-    : `Day ${dayNum} � ${streak}-day streak � ${totalPts} pts`;
+    ? `${totalDays} days � ${totalPts} pts � ${streak}-day streak`
+    : `Day ${dayNum} � ${streak}-day streak � ${totalPts} pts`;
 
   const pillW = s * 0.78, pillH = s * 0.085, pillX = (s - pillW) / 2, pillY = s * 0.44;
   ctx.fillStyle = "rgba(255,255,255,0.06)";
@@ -3479,7 +3511,7 @@ function drawShareCard(challenge, isDone) {
   const _scLevel = getLevelInfo(state.xp);
   ctx.fillStyle = "rgba(154,154,152,0.6)";
   ctx.font      = `400 ${Math.round(s * 0.03)}px 'Arial', sans-serif`;
-  ctx.fillText(`FIELD LOG � Lv.${_scLevel.level} ${_scLevel.name}`, s / 2, s * 0.81);
+  ctx.fillText(`FIELD LOG � Lv.${_scLevel.level} ${_scLevel.name}`, s / 2, s * 0.81);
 
   ctx.fillStyle = "rgba(154,154,152,0.4)";
   ctx.font      = `700 ${Math.round(s * 0.028)}px 'Arial', sans-serif`;
@@ -3495,7 +3527,7 @@ function renderShareModal() {
   const totalDays = diffDays(_shareModalChallenge.startDate, _shareModalChallenge.endDate) + 1;
   const dayNum    = challengeDayNumber(_shareModalChallenge);
   const shareText = _shareModalDone
-    ? `I just completed the ${_shareModalChallenge.name} challenge on Endur.\n${totalDays} days � ${totalPts} pts � ${streak}-day streak.\nOutlast everything.\n${SHARE_URL}`
+    ? `I just completed the ${_shareModalChallenge.name} challenge on Endur.\n${totalDays} days � ${totalPts} pts � ${streak}-day streak.\nOutlast everything.\n${SHARE_URL}`
     : `Day ${dayNum} of my ${_shareModalChallenge.name} challenge - ${streak}-day streak.\nBuilding tasks one day at a time.\n${SHARE_URL}`;
 
   return `
@@ -3544,7 +3576,7 @@ function renderCompletionModal(c) {
       <button class="chain-cta" data-start-suggested="${nextT.id}">
         <span class="chain-cta-pre">Continue your journey</span>
         <span class="chain-cta-main"><i class="ti ${challengeIcon(nextT)}"></i> ${nextT.name} -></span>
-        <span class="chain-cta-sub">${nextT.duration} days � Level up</span>
+        <span class="chain-cta-sub">${nextT.duration} days � Level up</span>
       </button>` : ""}
       ${(() => {
         const restDays = totalDays >= 75 ? 5 : totalDays >= 30 ? 3 : 2;
@@ -3612,7 +3644,7 @@ function renderChallengeCard(c) {
   const isFloors     = distHabit?.unit === "floors";
   const MI_PER_KM    = 0.621371;
   const globalDist   = state.settings.units.distance || "km";
-  const dUnit        = isFloors ? "floors" : (globalDist === "miles" ? "mi" : "km");
+  const dUnit        = unitLabelFor(distHabit?.unit);
   const factor       = dUnit === "mi" ? MI_PER_KM : 1;
   const todayNativeKm = isExpedition && day?.distances
     ? Object.values(day.distances).reduce((s,v) => s + (Number(v)||0), 0) : null;
@@ -3638,7 +3670,6 @@ function renderChallengeCard(c) {
             : isExpedition
               ? `<div class="cc-today">${todayNativeKm !== null && todayNativeKm > 0 ? (Math.round(todayNativeKm*factor*10)/10)+" "+dUnit : "—"}</div>`
               : `<div class="cc-today">${todayInfo?todayInfo.percent+"%":"—"}</div>`}
-          <div class="cc-streak"><i class="ti ti-flame"></i> ${streak}</div>
         </div>
       </div>
       <div class="cc-track">
@@ -3698,7 +3729,7 @@ function renderChallengeDetail(c) {
   const isFloorsDet   = distHabitDet?.unit === "floors";
   const MI_PER_KM_D   = 0.621371;
   const globalDistD   = state.settings.units.distance || "km";
-  const dUnitDet      = isFloorsDet ? "floors" : (globalDistD === "miles" ? "mi" : "km");
+  const dUnitDet      = unitLabelFor(distHabitDet?.unit);
   const factorDet     = dUnitDet === "mi" ? MI_PER_KM_D : 1;
   const totalKmDisplay = isExpedition ? Math.round(totalNativeKm * factorDet * 10) / 10 : null;
   const challengeBadgeTotal = c.templateId ? (TEMPLATE_BADGES[c.templateId]?.length || 0) : 0;
@@ -3718,7 +3749,7 @@ function renderChallengeDetail(c) {
       </div>
     </div>
     <div class="stats-grid" style="margin-bottom:14px">
-      ${statCard(`<i class="ti ti-flame stat-ic"></i> Streak`, streak, "days")}
+      ${statCard(`<i class="ti ti-bolt stat-ic"></i> Total pts`, totalPts, "")}
       ${isExpedition
         ? statCard(`<i class="ti ti-map-2 stat-ic"></i> Distance`, totalKmDisplay.toFixed(isFloorsDet?0:1), dUnitDet)
         : statCard(`<i class="ti ti-bolt stat-ic"></i> Total pts`, totalPts, "")}
@@ -3736,7 +3767,7 @@ function renderChallengeDetail(c) {
         <span class="cnb-emoji"><i class="ti ${challengeIcon(nextChainT)}"></i></span>
         <div class="cnb-info">
           <div class="cnb-name">${nextChainT.name}</div>
-          <div class="cnb-meta">${nextChainT.duration} days � Level up</div>
+          <div class="cnb-meta">${nextChainT.duration} days � Level up</div>
         </div>
         <span class="cnb-arrow">-></span>
       </div>
@@ -3761,7 +3792,7 @@ function renderChallengeDetail(c) {
           const routePct = routeKm ? Math.min(100, Math.round((kmTotal / routeKm) * 100)) : null;
           return `<div class="habit-preview-item">
             <span class="hpi-title">${esc(h.title)}</span>
-            <span class="hpi-rate ${routePct === 0 || daysLogged === 0 ? "hpi-rate--zero" : routePct === 100 ? "hpi-rate--done" : "hpi-rate--progress"}">${kmTotal.toFixed(1)} km${routePct !== null ? ` � ${routePct}% of route` : ` � ${daysLogged}d logged`}</span>
+            <span class="hpi-rate ${routePct === 0 || daysLogged === 0 ? "hpi-rate--zero" : routePct === 100 ? "hpi-rate--done" : "hpi-rate--progress"}">${kmTotal.toFixed(1)} km${routePct !== null ? ` � ${routePct}% of route` : ` � ${daysLogged}d logged`}</span>
           </div>`;
         }
         if (h.type === "measurement") {
@@ -4218,7 +4249,7 @@ function renderBuilderTemplates() {
     const isFloors     = distHabit?.unit === "floors";
     const MI_PER_KM    = 0.621371;
     const globalDist   = state.settings.units.distance || "km";
-    const dUnit        = isFloors ? "floors" : (globalDist === "miles" ? "mi" : "km");
+    const dUnit        = unitLabelFor(distHabit?.unit);
     const factor       = dUnit === "mi" ? MI_PER_KM : 1;
     const diff     = TEMPLATE_DIFFICULTY[t.id] || "intermediate";
     const meta = isExpedition
@@ -5570,7 +5601,7 @@ function bindEvents() {
     const totalDays = diffDays(_shareModalChallenge.startDate, _shareModalChallenge.endDate)+1;
     const dayNum    = challengeDayNumber(_shareModalChallenge);
     const text = _shareModalDone
-      ? `I just completed the ${_shareModalChallenge.name} challenge on Endur.\n${totalDays} days � ${totalPts} pts � ${streak}-day streak.\nOutlast everything.\n${SHARE_URL}`
+      ? `I just completed the ${_shareModalChallenge.name} challenge on Endur.\n${totalDays} days � ${totalPts} pts � ${streak}-day streak.\nOutlast everything.\n${SHARE_URL}`
       : `Day ${dayNum} of my ${_shareModalChallenge.name} challenge - ${streak}-day streak.\nBuilding tasks one day at a time.\n${SHARE_URL}`;
     if (navigator.share) {
       fetch(_shareCardDataUrl).then(r=>r.blob()).then(blob => {
@@ -5597,7 +5628,7 @@ function bindEvents() {
     const totalDays = diffDays(_shareModalChallenge.startDate, _shareModalChallenge.endDate)+1;
     const dayNum    = challengeDayNumber(_shareModalChallenge);
     const text = _shareModalDone
-      ? `I just completed the ${_shareModalChallenge.name} challenge on Endur.\n${totalDays} days � ${totalPts} pts � ${streak}-day streak.\nOutlast everything.\n${SHARE_URL}`
+      ? `I just completed the ${_shareModalChallenge.name} challenge on Endur.\n${totalDays} days � ${totalPts} pts � ${streak}-day streak.\nOutlast everything.\n${SHARE_URL}`
       : `Day ${dayNum} of my ${_shareModalChallenge.name} challenge - ${streak}-day streak.\nBuilding tasks one day at a time.\n${SHARE_URL}`;
     navigator.clipboard?.writeText(text).then(() => showToast("Copied!")).catch(() => showToast(text));
   });
