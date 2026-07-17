@@ -3621,14 +3621,14 @@ function renderCompletionModal(c) {
   const destName      = tpl?.milestones?.length ? tpl.milestones[tpl.milestones.length-1].name : c.name;
   const fmtD          = v => mIsFloors ? Math.round(v).toLocaleString() : v;
   const completionSub = isMission
-    ? `You covered <strong>${fmtD(mTotalD)} ${mDUnit}</strong> over <strong>${activities}</strong> ${activities===1?"session":"sessions"}${routeFinished?` and reached <strong>${esc(destName)}</strong>`:""} in <strong>${daysToDone}</strong> days.`
+    ? `You covered <strong>${fmtD(mTotalD)} ${mDUnit}</strong> over <strong>${activities}</strong> ${activities===1?"session":"sessions"}${routeFinished && tpl?.routeGeo?` and reached <strong>${esc(destName)}</strong>`:""} in <strong>${daysToDone}</strong> ${daysToDone===1?"day":"days"}.`
     : `${totalDays} days · ${totalPts} pts. That's what commitment looks like.`;
   const bonusXP = c.completionBonus || 0;
   return `
   <div class="sheet-backdrop" data-close-completion>
     <section class="sheet completion-modal" role="dialog">
       <div class="completion-emoji"><i class="ti ${tpl?challengeIcon(tpl):"ti-trophy"}"></i></div>
-      <div class="completion-title">${isExpedition && routeFinished ? "Route Complete" : "Challenge Complete"}</div>
+      <div class="completion-title">${isMission && routeFinished ? "Route Complete" : "Mission Complete"}</div>
       <div class="completion-name">${esc(c.name)}</div>
       <div class="completion-sub">${completionSub}</div>
       ${isMission ? `<div class="completion-stats">
