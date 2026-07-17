@@ -1832,7 +1832,9 @@ function updateChallengeStatuses() {
   const today = todayKey();
   let changed = false;
   for (const c of Object.values(state.challenges)) {
-    if (c.status === "active" && !c.noEndDate && c.endDate < today) {
+    const _rk = challengeRouteKm(c);
+    const _targetHit = _rk && challengeTotalKm(c) >= _rk;
+    if (c.status === "active" && ((!c.noEndDate && c.endDate < today) || _targetHit)) {
       c.finalStreak = calcChallengeStreak(c); // snapshot before status changes
       c.status = "completed";
       if (!c.completedAt) c.completedAt = new Date().toISOString();
@@ -3517,13 +3519,17 @@ function drawShareCard(challenge, isDone) {
   ctx.font      = `500 ${Math.round(s * 0.065)}px 'Arial', sans-serif`;
   ctx.fillText(challenge.name, s / 2, s * 0.38);
 
-  const streak     = calcChallengeStreak(challenge);
-  const totalPts   = Object.values(challenge.days).reduce((a, d) => a + (d.pts || 0), 0);
-  const dayNum     = challengeDayNumber(challenge);
+  const _dh  = challenge.habits.find(h => h.type === "distance");
+  const _u   = unitLabelFor(_dh?.unit);
+  const _isFloors = _dh?.unit === "floors";
+  const _f   = _u === "mi" ? 0.621371 : 1;
+  const _tot = Math.round(challengeTotalKm(challenge) * _f * 10) / 10;
+  const _totTxt = _isFloors ? Math.round(_tot).toLocaleString() : _tot;
+  const _acts = Object.values(challenge.days).filter(d => d.distances && Object.values(d.distances).some(v => Number(v) > 0)).length;
   const totalDays  = diffDays(challenge.startDate, challenge.endDate) + 1;
   const statLine = isDone
-    ? `${totalDays} days � ${totalPts} pts � ${streak}-day streak`
-    : `Day ${dayNum} � ${streak}-day streak � ${totalPts} pts`;
+    ? `${_totTxt} ${_u}  ·  ${_acts} sessions  ·  ${totalDays} days`
+    : `${_totTxt} ${_u} logged  ·  ${_acts} sessions`;
 
   const pillW = s * 0.78, pillH = s * 0.085, pillX = (s - pillW) / 2, pillY = s * 0.44;
   ctx.fillStyle = "rgba(255,255,255,0.06)";
@@ -3535,16 +3541,15 @@ function drawShareCard(challenge, isDone) {
   ctx.font      = `400 ${Math.round(s * 0.038)}px 'Arial', sans-serif`;
   ctx.fillText(statLine, s / 2, pillY + pillH * 0.64);
 
-  const headline = isDone ? "Challenge complete."
-    : streak >= 2 ? `${streak} days straight.`
-    : `Day ${dayNum} - showing up.`;
+  const headline = isDone ? "Mission complete."
+    : `${_totTxt} ${_u} and counting.`;
   ctx.fillStyle = accent;
   ctx.font      = `500 ${Math.round(s * 0.055)}px 'Arial', sans-serif`;
   ctx.fillText(headline, s / 2, s * 0.65);
 
   ctx.fillStyle = "#9a9a98";
   ctx.font      = `400 ${Math.round(s * 0.033)}px 'Arial', sans-serif`;
-  ctx.fillText(isDone ? "Built the task chain. Finished the challenge." : "One day at a time. " + SHARE_URL, s / 2, s * 0.72);
+  ctx.fillText(isDone ? "Every mile moved me somewhere." : "Every mile moves you somewhere. " + SHARE_URL, s / 2, s * 0.72);
 
   const _scLevel = getLevelInfo(state.xp);
   ctx.fillStyle = "rgba(154,154,152,0.6)";
@@ -3560,13 +3565,16 @@ function drawShareCard(challenge, isDone) {
 
 function renderShareModal() {
   if (!_shareModalChallenge || !_shareCardDataUrl) return "";
-  const streak    = calcChallengeStreak(_shareModalChallenge);
-  const totalPts  = Object.values(_shareModalChallenge.days).reduce((a, d) => a + (d.pts || 0), 0);
-  const totalDays = diffDays(_shareModalChallenge.startDate, _shareModalChallenge.endDate) + 1;
-  const dayNum    = challengeDayNumber(_shareModalChallenge);
+  const _sc       = _shareModalChallenge;
+  const _sdh      = _sc.habits.find(h => h.type === "distance");
+  const _su       = unitLabelFor(_sdh?.unit);
+  const _sf       = _su === "mi" ? 0.621371 : 1;
+  const _stot     = Math.round(challengeTotalKm(_sc) * _sf * 10) / 10;
+  const _stotTxt  = _sdh?.unit === "floors" ? Math.round(_stot).toLocaleString() : _stot;
+  const totalDays = diffDays(_sc.startDate, _sc.endDate) + 1;
   const shareText = _shareModalDone
-    ? `I just completed the ${_shareModalChallenge.name} challenge on Endur.\n${totalDays} days � ${totalPts} pts � ${streak}-day streak.\nOutlast everything.\n${SHARE_URL}`
-    : `Day ${dayNum} of my ${_shareModalChallenge.name} challenge - ${streak}-day streak.\nBuilding tasks one day at a time.\n${SHARE_URL}`;
+    ? `I just completed ${_sc.name} on Endur — ${_stotTxt} ${_su} over ${totalDays} days.\nEvery mile moves you somewhere.\n${SHARE_URL}`
+    : `${_stotTxt} ${_su} into ${_sc.name} on Endur.\nEvery mile moves you somewhere.\n${SHARE_URL}`;
 
   return `
   <div class="share-modal-overlay" data-close-share-modal>
@@ -3590,17 +3598,23 @@ function renderCompletionModal(c) {
   const nextId       = c.templateId && CHALLENGE_CHAINS[c.templateId];
   const nextT        = nextId ? TEMPLATES.find(t => t.id === nextId) : null;
   const tpl          = c.templateId ? TEMPLATES.find(t => t.id === c.templateId) : null;
-  const isExpedition  = c.habits.some(h => h.type === "distance");
-  const totalKmNativeM = isExpedition ? challengeTotalKm(c) : null;
-  const routeFinished = challengeRouteKm(c) && totalKmNativeM >= challengeRouteKm(c);
-  const mDistHabit    = isExpedition ? c.habits.find(h => h.type === "distance") : null;
+  const isMission     = c.habits.some(h => h.type === "distance");
+  const mDistHabit    = isMission ? c.habits.find(h => h.type === "distance") : null;
+  const mDUnit        = isMission ? unitLabelFor(mDistHabit?.unit) : "";
   const mIsFloors     = mDistHabit?.unit === "floors";
-  const mDUnit        = mIsFloors ? "floors" : (state.settings.units.distance === "miles" ? "mi" : "km");
   const mFactor       = mDUnit === "mi" ? 0.621371 : 1;
-  const mTotalD       = isExpedition ? Math.round(totalKmNativeM * mFactor * 10) / 10 : null;
-  const completionSub = isExpedition
-    ? `${mTotalD.toFixed(mIsFloors?0:1)} ${mDUnit} covered · ${totalDays} days · ${finalStreak}-day streak.<br>${routeFinished ? "You finished the route. Legendary." : "You stayed the course. That's what commitment looks like."}`
-    : `${totalDays} days · ${totalPts} pts · ${finalStreak}-day streak.<br>That's what commitment looks like.`;
+  const totalKmNativeM = isMission ? challengeTotalKm(c) : 0;
+  const mTotalD       = Math.round(totalKmNativeM * mFactor * 10) / 10;
+  const routeFinished = challengeRouteKm(c) && totalKmNativeM >= challengeRouteKm(c);
+  const activities    = isMission ? Object.values(c.days).filter(d => d.distances && Object.values(d.distances).some(v => Number(v) > 0)).length : 0;
+  const longestD      = isMission ? Math.round(Math.max(0, ...Object.values(c.days).map(d => d.distances ? Object.values(d.distances).reduce((s,v)=>s+(Number(v)||0),0) : 0)) * mFactor * 10) / 10 : 0;
+  const daysToDone    = c.completedAt ? diffDays(c.startDate, c.completedAt.slice(0,10)) + 1 : totalDays;
+  const reachedCount  = tpl?.milestones ? tpl.milestones.filter(m => totalKmNativeM >= m.km).length : 0;
+  const destName      = tpl?.milestones?.length ? tpl.milestones[tpl.milestones.length-1].name : c.name;
+  const fmtD          = v => mIsFloors ? Math.round(v).toLocaleString() : v;
+  const completionSub = isMission
+    ? `You covered <strong>${fmtD(mTotalD)} ${mDUnit}</strong> over <strong>${activities}</strong> ${activities===1?"session":"sessions"}${routeFinished?` and reached <strong>${esc(destName)}</strong>`:""} in <strong>${daysToDone}</strong> days.`
+    : `${totalDays} days · ${totalPts} pts. That's what commitment looks like.`;
   const bonusXP = c.completionBonus || 0;
   return `
   <div class="sheet-backdrop" data-close-completion>
@@ -3609,6 +3623,12 @@ function renderCompletionModal(c) {
       <div class="completion-title">${isExpedition && routeFinished ? "Route Complete" : "Challenge Complete"}</div>
       <div class="completion-name">${esc(c.name)}</div>
       <div class="completion-sub">${completionSub}</div>
+      ${isMission ? `<div class="completion-stats">
+        <div class="cstat"><div class="cstat-v">${fmtD(mTotalD)}</div><div class="cstat-l">${mDUnit}</div></div>
+        <div class="cstat"><div class="cstat-v">${activities}</div><div class="cstat-l">${activities===1?"session":"sessions"}</div></div>
+        <div class="cstat"><div class="cstat-v">${daysToDone}</div><div class="cstat-l">days</div></div>
+        <div class="cstat"><div class="cstat-v">${reachedCount}</div><div class="cstat-l">checkpoints</div></div>
+      </div>` : ""}
       ${bonusXP ? `<div class="completion-bonus-row"><i class="ti ti-bolt"></i> Challenge Complete Bonus: <strong>+${bonusXP} XP</strong></div>` : ""}
       ${nextT ? `
       <button class="chain-cta" data-start-suggested="${nextT.id}">
