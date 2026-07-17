@@ -5753,3 +5753,63 @@ details[open] .badge-locked-summary::before {
 .more-card strong {
   font-weight: 500 !important;
 }
+
+/* -- Endur Field detail progress semantics ---------------------------------- */
+.detail-progress-bar {
+  height: 4px !important;
+  margin-bottom: 22px !important;
+  background: var(--surface-3) !important;
+}
+.detail-progress-fill,
+.wc-goal-fill,
+.wc-goal-fill.wc-goal-done,
+.wdot.full,
+.wdot.partial {
+  background: var(--accent) !important;
+}
+.detail-progress-label {
+  top: 8px !important;
+  right: 0 !important;
+  font-size: 9px !important;
+  font-weight: 500 !important;
+  letter-spacing: 1.1px !important;
+  text-transform: uppercase !important;
+  color: var(--text-faint) !important;
+}
+.wdot.empty,
+.wdot.future {
+  background: var(--surface-3) !important;
+  border-color: var(--border) !important;
+}
+.wdot.partial {
+  opacity: .55 !important;
+}
+.wdot.full {
+  opacity: 1 !important;
+}
+.wc-goal-hit {
+  color: var(--accent) !important;
+}
+.wc-pts {
+  background: none !important;
+  -webkit-text-fill-color: var(--accent) !important;
+  color: var(--accent) !important;
+  font-weight: 500 !important;
+}
+.wc-points-help {
+  margin-top: 6px;
+  font-size: 10px;
+  line-height: 1.35;
+  color: var(--text-faint);
+  letter-spacing: .3px;
+}
+.hpi-rate--zero {
+  color: var(--text-faint) !important;
+}
+.hpi-rate--progress,
+.hpi-rate--done {
+  color: var(--accent) !important;
+}
+.hpi-rate--done {
+  font-weight: 600 !important;
+}

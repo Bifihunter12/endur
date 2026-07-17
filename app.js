@@ -362,16 +362,6 @@ const TEMPLATES = [
     ]
   },
   {
-    id: "steps-10k", name: "10,000 Steps", emoji: "👟", category: "movement", deprecated: true,
-    description: "30 days of hitting 10,000 steps every day. The most evidence-backed daily movement habit there is.",
-    duration: 30, weeklyGoal: 28, defaultMode: "soft",
-    habits: [
-      { id:"ts-steps",   title:"Hit step target",           emoji:"👟", quip:"10k is the goal. Beat it when you can.", type:"tiered", points:4,
-        tiers:[{label:"5,000–7,999",pts:2},{label:"8,000–9,999",pts:3},{label:"10,000+",pts:5}] },
-      { id:"ts-outside", title:"30 min outside",            emoji:"🌳", quip:"Fresh air and daylight improve focus and mood.",              type:"binary", points:1 },
-    ]
-  },
-  {
     id: "running", name: "Running Challenge", emoji: "🏃", category: "movement",
     description: "30 days of running. Build the habit, find the pace, feel the difference. Flexible pacing is encouraged — 4–5 sessions per week is plenty and helps prevent injury.",
     duration: 30, weeklyGoal: 80, defaultMode: "soft",
@@ -380,37 +370,6 @@ const TEMPLATES = [
         tiers:[{value:1,label:"1 km",points:3},{value:3,label:"3 km",points:4},{value:5,label:"5 km",points:6},{value:10,label:"10 km+",points:9}] },
       { id:"rn-log",     title:"Log your mileage",          emoji:"📊", quip:"What gets tracked gets improved.",   type:"binary", points:1 },
       { id:"rn-stretch", title:"Post-run stretch",          emoji:"🧘", quip:"Skipping this is how injuries happen.", type:"binary", points:2 },
-    ]
-  },
-  {
-    id: "strength", name: "Strength Training", emoji: "🏋️", category: "movement",
-    description: "30 days of consistent lifting. Build the habit, then build the muscle. Rest and recovery days are part of the process — 3–4 training days per week is realistic and sustainable.",
-    duration: 30, weeklyGoal: 55, defaultMode: "soft",
-    habits: [
-      { id:"st-lift",    title:"Lift session",              emoji:"🏋️", quip:"Show up. Lift. Repeat.",               type:"binary", points:5 },
-      { id:"st-overload",title:"Progressive overload logged",emoji:"📊", quip:"Did you do more than last time? Log it.",type:"binary", points:2 },
-      { id:"st-stretch", title:"Post-lift stretch",         emoji:"🦵", quip:"Skipping this is how injuries happen.",type:"binary", points:1 },
-    ]
-  },
-  {
-    id: "yoga-flexibility", name: "Yoga & Mobility", emoji: "🧘‍♀️", category: "movement",
-    description: "30 days of yoga, stretching, and mobility work. Move better, recover faster, feel lighter.",
-    duration: 30, weeklyGoal: 42, defaultMode: "soft",
-    habits: [
-      { id:"yf-yoga",     title:"Yoga or mobility (10 min+)", emoji:"🧘", quip:"Mat out. 10 minutes is enough. Just start.", type:"binary", points:4 },
-      { id:"yf-stretch",  title:"Full-body stretch",          emoji:"🦵", quip:"Tight muscles are slow muscles.",           type:"binary", points:2 },
-      { id:"yf-breathe",  title:"Breathwork (5 min)",         emoji:"💨", quip:"Breath controls everything else.",          type:"binary", points:2 },
-    ]
-  },
-  {
-    id: "core-abs", name: "Core & Abs", emoji: "🔥", category: "movement",
-    description: "30 days of core work. Planks, crunches, leg raises — build real strength. Flexible pacing is welcome; muscles grow during recovery, not just during training.",
-    duration: 30, weeklyGoal: 70, defaultMode: "soft",
-    habits: [
-      { id:"ca-core",     title:"Core workout (15 min)",      emoji:"💪", quip:"15 minutes. No excuses.",                type:"binary", points:5 },
-      { id:"ca-plank",    title:"Plank hold",                 emoji:"⏱️", quip:"The plank is honest.",                   type:"tiered", points:2,
-        tiers:[{label:"Under 1 min",pts:2},{label:"1–2 min",pts:4},{label:"2+ min",pts:6}] },
-      { id:"ca-stretch",  title:"Hip flexor stretch",         emoji:"🦵", quip:"Core work tightens everything. Stretch.", type:"binary", points:1 },
     ]
   },
 
@@ -424,341 +383,6 @@ const TEMPLATES = [
         tiers:[{label:"20–30 min",pts:5},{label:"30–45 min",pts:7},{label:"45–60 min",pts:9}] },
       { id:"z2-check",    title:"Zone 2 effort check",        emoji:"🗣️", quip:"Could you hold a conversation? If not, slow down next time.", type:"binary", points:1 },
       { id:"z2-mobility", title:"Mobility (5 min)",           emoji:"🧘", quip:"Keep the body feeling good as volume builds.",            type:"binary", points:2 },
-    ]
-  },
-  {
-    id: "swim-foundation", name: "Swim Foundation", emoji: "??", category: "endurance",
-    description: "30 days of pool work at your own pace. Build comfort, breathing, and steady swim consistency without forcing a rigid schedule.",
-    duration: 30, weeklyGoal: 55, defaultMode: "soft",
-    habits: [
-      { id:"sf-swim",    title:"Pool session",          emoji:"??", quip:"Easy water time counts. Technique first.", type:"tiered", points:5,
-        tiers:[{label:"10-20 min",pts:5},{label:"20-35 min",pts:7},{label:"35+ min",pts:9}] },
-      { id:"sf-drills",  title:"Technique drills",      emoji:"??", quip:"Kick, pull, breathing, or body position.", type:"binary", points:3 },
-      { id:"sf-log",     title:"Log distance or time",  emoji:"??", quip:"Track what you did. Keep it honest.", type:"binary", points:2 },
-    ]
-  },
-  {
-    id: "swim-1k", name: "Swim 1K Prep", emoji: "??", category: "endurance",
-    description: "6 weeks to build toward a continuous 1,000 m swim. Repeat weeks, shorten sessions, or pause whenever your body or skill level needs it.",
-    duration: 42, weeklyGoal: 60, defaultMode: "soft",
-    habits: [
-      { id:"s1k-swim",   title:"Swim session",          emoji:"??", quip:"Progress is smoother when the pace is yours.", type:"tiered", points:5,
-        tiers:[{label:"250 m",pts:5},{label:"500 m",pts:7},{label:"750 m+",pts:9},{label:"1,000 m",pts:11}] },
-      { id:"s1k-form",   title:"Form focus",            emoji:"??", quip:"One cue: breathe, rotate, catch, or relax.", type:"binary", points:2 },
-      { id:"s1k-recover",title:"Shoulder mobility",     emoji:"??", quip:"Five minutes keeps the shoulders friendly.", type:"binary", points:2 },
-    ]
-  },
-  {
-    id: "open-water-prep", name: "Open Water Swim Prep", emoji: "??", category: "endurance",
-    description: "8 weeks of pool and supervised open-water practice. Built for gradual confidence: sighting, breathing, cold-water judgment, and safe conditions.",
-    duration: 56, weeklyGoal: 60, defaultMode: "soft",
-    habits: [
-      { id:"ows-session", title:"Swim session",          emoji:"??", quip:"Pool or supervised open water. Safety first.", type:"tiered", points:6,
-        tiers:[{label:"20 min",pts:6},{label:"35 min",pts:8},{label:"50+ min",pts:10}] },
-      { id:"ows-sighting",title:"Sighting / skills",     emoji:"??", quip:"Practice looking up, turning, or bilateral breathing.", type:"binary", points:3 },
-      { id:"ows-safety",  title:"Safety check logged",   emoji:"??", quip:"Buddy, weather, water temp, entry/exit. No exceptions.", type:"binary", points:4 },
-    ]
-  },
-  {
-    id: "hyrox", name: "HYROX Training", emoji: "⚡", category: "endurance",
-    description: "12 weeks of race-ready functional fitness. 4 training days per week: strength, running, WOD circuits, and full race simulations.",
-    duration: 84, weeklyGoal: 70, defaultMode: "soft",
-    weekSchedule: [
-      { day:1, type:"strength",  label:"Strength",          emoji:"🏋️", desc:"Squats, deadlifts, overhead press. Build the base that powers every HYROX station." },
-      { day:2, type:"easy",      label:"Easy Run",           emoji:"🟢", desc:"6–8 km at conversational pace. RPE 3–4. HYROX is 8 km of running — build it now." },
-      { day:3, type:"wod",       label:"HYROX WOD",          emoji:"⚡", desc:"Station circuit: SkiErg, sled push/pull, burpee broad jumps, row, farmers carry, sandbag lunges, wall balls." },
-      { day:4, type:"rest",      label:"Flex Day",           emoji:"⚪", desc:"Full rest or easy walk. Recovery is where adaptation happens." },
-      { day:5, type:"interval",  label:"Run Intervals",      emoji:"🟠", desc:"8×400m at race pace + 60 sec rest, or 4×1km tempo. RPE 7–8." },
-      { day:6, type:"simulate",  label:"Race Simulation",    emoji:"🏆", desc:"Full HYROX: 8×1km run interleaved with all 8 stations at race pace. This is what it's all for." },
-      { day:7, type:"rest",      label:"Flex Day",           emoji:"⚪", desc:"Full rest. Eat well. Sleep 8 hours. You've earned it." },
-    ],
-    habits: [
-      { id:"hx-session",  title:"Training session",          emoji:"⚡", quip:"Strength, WOD, run, or race sim — log what you did.",
-        type:"tiered", points:5, tiers:[{label:"Easy 30 min",pts:5},{label:"WOD or run 45+ min",pts:7},{label:"Race simulation 60+ min",pts:10}] },
-      { id:"hx-run",      title:"Run distance",              emoji:"🏃", quip:"HYROX is 8 km of running. Build the base every week.",
-        type:"tiered", points:4, tiers:[{label:"3 km",pts:4},{label:"5 km",pts:6},{label:"8 km+",pts:8}] },
-      { id:"hx-stations", title:"Station drills",            emoji:"🔔", quip:"SkiErg, sled, row, burpees, carries, lunges, wall balls.", type:"binary", points:4 },
-      { id:"hx-recover",  title:"Post-session recovery",     emoji:"🦵", quip:"Foam roll, stretch, and eat. Recovery builds the athlete.", type:"binary", points:2 },
-    ]
-  },
-  {
-    id: "half-marathon-prep", name: "Half Marathon Prep", emoji: "🏃", category: "endurance",
-    description: "12 weeks to race day. A flexible weekly rhythm: easy runs, tempo, long run, cross-training, and recovery as needed.",
-    duration: 84, weeklyGoal: 75, defaultMode: "soft",
-    weekSchedule: [
-      { day:1, type:"easy",  label:"Easy Run",    emoji:"🟢", desc:"30–40 min at conversational pace. RPE 3–4." },
-      { day:2, type:"rest",  label:"Flex Day",    emoji:"⚪", desc:"Full rest or easy walk. Recovery is training." },
-      { day:3, type:"tempo", label:"Tempo Run",   emoji:"🟡", desc:"20–30 min at comfortably hard pace. RPE 6–7." },
-      { day:4, type:"easy",  label:"Easy Run",    emoji:"🟢", desc:"30–40 min easy. Keep it conversational." },
-      { day:5, type:"rest",  label:"Flex Day",    emoji:"⚪", desc:"Flex Day. Prep mentally for tomorrow's long run." },
-      { day:6, type:"long",  label:"Long Run",    emoji:"🔴", desc:"The week's key session. Slow and steady. Add 1–2 km each week." },
-      { day:7, type:"cross", label:"Cross-Train", emoji:"🔵", desc:"Swim, bike, yoga, or strength. Easy effort only." },
-    ],
-    habits: [
-      { id:"hm-run",    title:"Scheduled run",              emoji:"🏃", quip:"Log the type of run you completed.", type:"tiered", points:5,
-        tiers:[{label:"Easy 20–30 min",pts:5},{label:"Tempo 30–40 min",pts:7},{label:"Long run 60+ min",pts:9},{label:"Interval session",pts:7}] },
-      { id:"hm-xt",     title:"Cross-train session",        emoji:"🚴", quip:"Swim, bike, yoga, or strength — anything non-run.", type:"binary", points:3 },
-      { id:"hm-stretch",title:"Mobility work",              emoji:"🦵", quip:"Tight hips = slower times.",        type:"binary", points:2 },
-      { id:"hm-fuel",   title:"Fuel + hydrate",             emoji:"🥗", quip:"Hit protein + 2L+ water. Carbs before long runs.", type:"binary", points:2 },
-      { id:"hm-pain",   title:"Pain check",                 emoji:"💚", quip:"Yellow or red: drop the pace today.", type:"binary", points:1 },
-    ]
-  },
-  {
-    id: "marathon-training", name: "Marathon Training", emoji: "🏅", category: "endurance",
-    description: "16 weeks to 42.2 km. A flexible weekly rhythm: easy runs, quality work, long run, cross-training, and recovery as needed.",
-    duration: 112, weeklyGoal: 70, defaultMode: "soft",
-    weekSchedule: [
-      { day:1, type:"easy",     label:"Easy Run",      emoji:"🟢", desc:"45–60 min easy pace. Conversational. RPE 3–4." },
-      { day:2, type:"rest",     label:"Flex Day",      emoji:"⚪", desc:"Full rest or foam rolling. Recovery is where you improve." },
-      { day:3, type:"interval", label:"Quality Run",   emoji:"🟠", desc:"Intervals, tempo, or strides. RPE 7–8." },
-      { day:4, type:"easy",     label:"Easy Run",      emoji:"🟢", desc:"30–45 min easy. Keep it easy — no heroics." },
-      { day:5, type:"cross",    label:"Cross-Train",   emoji:"🔵", desc:"Swim, bike, strength, or yoga. 30–60 min easy effort." },
-      { day:6, type:"long",     label:"Long Run",      emoji:"🔴", desc:"The week's anchor session. Slow, steady, and fuelled." },
-      { day:7, type:"rest",     label:"Flex Day",      emoji:"⚪", desc:"Full rest. Eat well. Sleep. You've earned it." },
-    ],
-    habits: [
-      { id:"mt-run",    title:"Scheduled session",     emoji:"🏃", quip:"Log the type of session you completed.", type:"tiered", points:5,
-        tiers:[{label:"Easy 30–45 min",pts:5},{label:"Quality 40+ min",pts:7},{label:"Long run 90+ min",pts:9}] },
-      { id:"mt-xt",     title:"Cross-train session",   emoji:"🏊", quip:"Active recovery is still recovery.",  type:"binary", points:3 },
-      { id:"mt-stretch",title:"Stretch & foam roll",   emoji:"🦵", quip:"15 min saves your IT bands.",         type:"binary", points:2 },
-      { id:"mt-fuel",   title:"Fuel & hydrate",        emoji:"🍌", quip:"Hit protein + carbs. Race-nutrition practice on long runs.", type:"binary", points:2 },
-      { id:"mt-pain",   title:"No pain or injury",     emoji:"💚", quip:"Pain is information. Dial back if needed.", type:"binary", points:1 },
-    ]
-  },
-  {
-    id: "ironman-703", name: "Ironman 70.3", emoji: "🏊", category: "endurance",
-    description: "20 weeks of swim, bike, run. Half the distance — all the glory.",
-    duration: 140, weeklyGoal: 65, defaultMode: "soft",
-    habits: [
-      { id:"703-session",title:"Complete scheduled session", emoji:"🏊", quip:"Swim, bike, or run — log what the plan says.", type:"tiered", points:6,
-        tiers:[{label:"30–45 min",pts:6},{label:"60–90 min",pts:8},{label:"90+ min",pts:10}] },
-      { id:"703-log",    title:"Log sport and duration",    emoji:"📊", quip:"Track it. Your triathlon is built session by session.", type:"binary", points:2 },
-      { id:"703-recover",title:"Recovery & stretch",        emoji:"🦵", quip:"Three sports means three ways to injure.",             type:"binary", points:2 },
-    ]
-  },
-  {
-    id: "ironman-full", name: "Full Ironman", emoji: "🏅", category: "endurance",
-    description: "24 weeks to conquer 3.8 km swim, 180 km bike, and a full marathon. The ultimate endurance test.",
-    duration: 168, weeklyGoal: 60, defaultMode: "soft",
-    habits: [
-      { id:"im-session", title:"Complete scheduled session", emoji:"🏊", quip:"Swim, bike, or run — log what the plan says.", type:"tiered", points:6,
-        tiers:[{label:"45–60 min",pts:6},{label:"60–120 min",pts:8},{label:"120+ min",pts:10}] },
-      { id:"im-strength",title:"Strength training",          emoji:"🏋️", quip:"Injury prevention starts in the gym.",        type:"binary", points:3 },
-      { id:"im-recover", title:"Active recovery",            emoji:"🛁", quip:"Ice, compression, soft-tissue work — do at least one.", type:"binary", points:2 },
-    ]
-  },
-  {
-    id: "tough-mudder", name: "Tough Mudder Prep", emoji: "🪖", category: "endurance",
-    description: "8 weeks to become obstacle-ready. Mud, walls, electric shocks — bring it on.",
-    duration: 56, weeklyGoal: 70, defaultMode: "soft",
-    habits: [
-      { id:"tm-cardio",  title:"Cardio session",       emoji:"🏃", quip:"You'll be running 16–19 km on race day.",  type:"binary", points:5 },
-      { id:"tm-strength",title:"Strength & lift",      emoji:"🏋️", quip:"Carry your teammates over walls.",        type:"binary", points:5 },
-      { id:"tm-grip",    title:"Grip & obstacle drills",emoji:"🧗", quip:"Monkey bars are harder than they look.",  type:"binary", points:4 },
-      { id:"tm-mental",  title:"Minimum session logged",emoji:"🧠", quip:"Even a short session counts. Show up every day.", type:"binary", points:3 },
-    ]
-  },
-  {
-    id: "spartan-race", name: "Spartan Race Prep", emoji: "⚔️", category: "endurance",
-    description: "12 weeks of OCR training. 30 burpees per missed obstacle — don't miss any.",
-    duration: 84, weeklyGoal: 65, defaultMode: "soft",
-    habits: [
-      { id:"sr-wod",     title:"Training session",     emoji:"⚔️", quip:"AROO!",                                   type:"binary", points:5 },
-      { id:"sr-obstacle",title:"Obstacle conditioning", emoji:"🧗", quip:"Spear throw, rope climb, sandbag carry.", type:"binary", points:4 },
-      { id:"sr-run",     title:"Trail or road run",    emoji:"🏃", quip:"Spartans run on rough terrain.",           type:"binary", points:5 },
-      { id:"sr-strength",title:"Strength circuit",     emoji:"🏋️", quip:"Burpees count. Weakness does not.",       type:"binary", points:3 },
-      { id:"sr-fuel",    title:"Protein + whole-food meals", emoji:"🥩", quip:"Real food only. Spartan diet.",      type:"binary", points:3 },
-    ]
-  },
-
-  // ── Health Tracking ──────────────────────────────────────────────────────
-  {
-    id: "weight-loss-30", name: "Weight Loss 30", emoji: "⚖️", category: "health",
-    description: "30 days of daily weigh-ins and healthy habits. Track your weight, build the routine.",
-    duration: 30, weeklyGoal: 80, defaultMode: "soft",
-    habits: [
-      { id:"wl-weight",   title:"Log weight",          emoji:"⚖️", quip:"Same time each morning.", type:"measurement", unit:"weight", decimals:1 },
-      { id:"wl-deficit",  title:"Nutrition target hit", emoji:"🥗", quip:"Track calories + 0.8 g protein per lb. Log before you eat.", type:"binary", points:5 },
-      { id:"wl-steps",    title:"8,000 steps",          emoji:"👟", quip:"Walking burns fat and helps your daily deficit.", type:"binary", points:3 },
-      { id:"wl-exercise", title:"Exercise 30 min",      emoji:"🏃", quip:"Cardio, weights, walk — it all counts.",          type:"binary", points:5 },
-      { id:"wl-hydration",title:"Drink 2L water",       emoji:"💧", quip:"Staying hydrated reduces false hunger signals and supports overall health.", type:"binary", points:2 },
-    ]
-  },
-  {
-    id: "body-composition", name: "Body Composition", emoji: "📊", category: "health",
-    description: "90 days tracking weight, body fat %, and lean muscle mass. Know your numbers.",
-    duration: 90, weeklyGoal: 70, defaultMode: "soft",
-    habits: [
-      { id:"bc-weight",   title:"Log weight",          emoji:"⚖️", quip:"Weekly is fine — daily is better.",                  type:"measurement", unit:"weight", decimals:1 },
-      { id:"bc-fat",      title:"Log body fat %",      emoji:"📉", quip:"DEXA, calipers, smart scale — pick one, stick to it.", type:"measurement", unit:"%",    decimals:1 },
-      { id:"bc-lean",     title:"Log lean mass",       emoji:"💪", quip:"Weight × (1 − fat% ÷ 100).",                        type:"measurement", unit:"weight", decimals:1 },
-      { id:"bc-protein",  title:"Hit protein goal",    emoji:"🥩", quip:"1g per lb of bodyweight — the evidence-based target for muscle building.",           type:"binary", points:5 },
-      { id:"bc-lift",     title:"Lift session",        emoji:"🏋️", quip:"Muscle doesn't build itself.",                       type:"binary", points:5 },
-      { id:"bc-steps",    title:"8,000 steps",         emoji:"👟", quip:"Daily movement shifts body comp even without gym sessions.", type:"binary", points:3 },
-      { id:"bc-hydration",title:"Drink enough water",  emoji:"💧", quip:"Muscle is 75% water. Stay hydrated.",               type:"binary", points:2 },
-    ]
-  },
-  {
-    id: "blood-pressure", name: "Blood Pressure Monitor", emoji: "🩺", category: "health", deprecated: true,
-    description: "30 days of daily blood pressure logging plus heart-healthy habits. Share the data with your doctor.",
-    duration: 30, weeklyGoal: 75, defaultMode: "soft",
-    habits: [
-      { id:"bp-sys",     title:"Log systolic (top #)",   emoji:"❤️", quip:"Normal: below 120 mmHg.",                        type:"measurement", unit:"mmHg",    decimals:0 },
-      { id:"bp-dia",     title:"Log diastolic (bottom #)",emoji:"💙", quip:"Normal: below 80 mmHg.",                        type:"measurement", unit:"mmHg",    decimals:0 },
-      { id:"bp-walk",    title:"30-min walk",            emoji:"🚶", quip:"Regular walks lower BP more than most meds.",    type:"binary",      points:5 },
-      { id:"bp-sodium",  title:"Sodium-conscious meals", emoji:"🧂", quip:"Under 1,500 mg Na/day for high-BP. Avoid processed food.", type:"binary", points:5 },
-      { id:"bp-stress",  title:"Stress downshift (10 min)", emoji:"🧘", quip:"Meditation, breathing, gentle walk, or quiet time.", type:"binary", points:3 },
-    ]
-  },
-  {
-    id: "glucose-control", name: "Glucose Control", emoji: "🩸", category: "health",
-    description: "60 days of fasting glucose tracking and blood-sugar-friendly habits. Export to share with your doctor.",
-    duration: 60, weeklyGoal: 75, defaultMode: "soft",
-    habits: [
-      { id:"gc-glucose",title:"Log fasting glucose",    emoji:"🩸", quip:"Measure before eating, first thing in the morning.", type:"measurement", unit:"mg/dL",  decimals:0 },
-      { id:"gc-meals",  title:"Protein + fiber meals",  emoji:"🥦", quip:"Protein and fiber blunt blood sugar spikes.",        type:"binary",      points:5 },
-      { id:"gc-exercise",title:"Exercise 30 min",       emoji:"🏃", quip:"Muscle is the biggest glucose sink in the body.",    type:"binary",      points:5 },
-      { id:"gc-walk",   title:"Post-meal walk",         emoji:"🚶", quip:"10 min walk after meals lowers blood sugar.",        type:"binary",      points:3 },
-      { id:"gc-sugar",  title:"No added sugar",         emoji:"🚫", quip:"Check labels. Sugar hides everywhere.",             type:"binary",      points:5 },
-    ]
-  },
-  {
-    id: "sleep-tracker", name: "Sleep Tracker", emoji: "💤", category: "health",
-    description: "30 days of sleep logging plus habits that actually improve sleep quality.",
-    duration: 30, weeklyGoal: 70, defaultMode: "soft",
-    habits: [
-      { id:"st-hours",  title:"Log hours slept",       emoji:"😴", quip:"Aim for 7–9 hours. Log it honestly.",              type:"measurement", unit:"hrs",     decimals:1 },
-      { id:"st-quality",title:"Log sleep quality 1–10",emoji:"⭐", quip:"How rested do you feel? 10 = fully charged.",       type:"measurement", unit:"/10",     decimals:0 },
-      { id:"st-bedtime",title:"Consistent bedtime",    emoji:"⏰", quip:"Same time ±30 min — even weekends.",               type:"binary",      points:5 },
-      { id:"st-screen", title:"No screens 1h before bed",emoji:"📵",quip:"Blue light delays melatonin by 90 min.",          type:"binary",      points:5 },
-      { id:"st-light",  title:"Morning sunlight 10 min",emoji:"☀️",quip:"Sets your circadian clock for the next 24 hours.", type:"binary",      points:3 },
-    ]
-  },
-
-  // ── Movement: beginner / body-weight progressions ───────────────────────
-  {
-    id: "recovery-reset", name: "Recovery Reset", emoji: "🌿", category: "health",
-    description: "21 days of deliberate recovery. Sleep, mobility, easy movement, and stress reduction — the habits that let the hard work pay off.",
-    duration: 21, weeklyGoal: 65, defaultMode: "soft",
-    habits: [
-      { id:"rr-sleep",    title:"7+ hours sleep opportunity", emoji:"🌙", quip:"You can't out-train poor sleep.",              type:"binary",      points:4 },
-      { id:"rr-walk",     title:"Easy walk (20–30 min)",      emoji:"🚶", quip:"Low intensity keeps the blood moving.",        type:"binary",      points:3 },
-      { id:"rr-mobility", title:"Mobility work (10 min)",     emoji:"🧘", quip:"Hips, thoracic spine, shoulders. Pick two.",   type:"binary",      points:3 },
-      { id:"rr-stress",   title:"Stress downshift (5 min)",   emoji:"💨", quip:"Breathing, journaling, or just quiet time.",  type:"binary",      points:2 },
-      { id:"rr-soreness", title:"Rate soreness 1–10",         emoji:"📊", quip:"Tracking how you feel is data too.",           type:"measurement", unit:"/10", decimals:0 },
-    ]
-  },
-  {
-    id: "c25k", name: "Couch to 5K", emoji: "🏃", category: "movement",
-    description: "9 weeks of run/walk intervals that take beginners from the sofa to a 5K finish line. 3 sessions per week — Flex Days are part of the plan. Week 1–2: 60–90 sec run / 90 sec–2 min walk × 8. Week 3–5: intervals build to 5 then 20 min continuous. Week 6–9: run 25–30 min straight.",
-    duration: 63, weeklyGoal: 50, defaultMode: "soft",
-    habits: [
-      { id:"c25k-run",     title:"Run/walk session",   emoji:"👟", quip:"Follow today's plan. Slow is fine — consistent is everything.",
-        type:"tiered", points:5, tiers:[{label:"Partial (stopped early)",pts:3},{label:"Full session completed",pts:5},{label:"Exceeded the plan",pts:7}] },
-      { id:"c25k-stretch", title:"Post-run stretch",   emoji:"🦵", quip:"5 minutes now saves weeks of injury later.", type:"binary", points:2 },
-    ]
-  },
-  {
-    id: "5k-prep", name: "5K Prep", emoji: "🎽", category: "movement",
-    description: "6 weeks to a faster 5K. Run 4× a week, add strides, and race-day yourself at the end.",
-    duration: 42, weeklyGoal: 65, defaultMode: "soft",
-    habits: [
-      { id:"5k-run",     title:"Run session",             emoji:"🏃", quip:"Shoes on. Door open. Go.",                       type:"tiered", points:3,
-        tiers:[{label:"Easy 20 min",pts:3},{label:"Tempo 30 min",pts:5},{label:"Interval session",pts:7}] },
-      { id:"5k-strides", title:"Strides after easy runs", emoji:"⚡", quip:"6 × 20-second pick-ups. More speed than you think.", type:"binary", points:2 },
-      { id:"5k-stretch", title:"Post-run stretch",        emoji:"🦵", quip:"Tight calves slow you down. Fix them.",             type:"binary", points:2 },
-    ]
-  },
-  {
-    id: "10k-prep", name: "10K Prep", emoji: "🏅", category: "endurance",
-    description: "8 weeks to your best 10K. Build weekly mileage, sharpen with intervals, and trust the process.",
-    duration: 56, weeklyGoal: 65, defaultMode: "soft",
-    habits: [
-      { id:"10k-run",    title:"Run session",            emoji:"🏃", quip:"Every kilometre is a deposit.",                       type:"tiered", points:3,
-        tiers:[{label:"Easy 30 min",pts:3},{label:"Tempo 40 min",pts:5},{label:"Long run 60+ min",pts:7}] },
-      { id:"10k-xt",     title:"Cross-train",            emoji:"🚴", quip:"Bike, swim, or yoga — protect the legs.",             type:"binary", points:2 },
-      { id:"10k-stretch",title:"Stretch & foam-roll",    emoji:"🦵", quip:"15 minutes now = fewer physio bills later.",          type:"binary", points:2 },
-    ]
-  },
-  {
-    id: "pilates", name: "Pilates", emoji: "🌸", category: "movement",
-    description: "30 days of mat Pilates — build deep core strength, improve posture, and move better every day.",
-    duration: 30, weeklyGoal: 55, defaultMode: "soft",
-    habits: [
-      { id:"pil-session", title:"Pilates session (20 min+)", emoji:"🌸", quip:"Mat out. Clothes on. Start the video.",           type:"binary", points:5 },
-      { id:"pil-breath",  title:"Pilates breathing (5 min)", emoji:"💨", quip:"Breath is the engine of every Pilates movement.", type:"binary", points:2 },
-      { id:"pil-stretch", title:"Full-body stretch",         emoji:"🦵", quip:"End every session lengthened, not compressed.",   type:"binary", points:2 },
-    ]
-  },
-  {
-    id: "12-3-30", name: "12-3-30 Challenge", emoji: "🏔️", category: "movement",
-    description: "Treadmill at 12% incline, 3 mph, for 30 minutes. The treadmill niche that actually works. Daily sessions are aspirational — Flex Days are fine and recommended to avoid overuse injuries.",
-    duration: 30, weeklyGoal: 45, defaultMode: "soft",
-    habits: [
-      { id:"1230-walk",   title:"12-3-30 session",        emoji:"🏔️", quip:"12% incline. 3 mph. 30 minutes. No shortcuts.",    type:"binary", points:6 },
-      { id:"1230-stretch",title:"Stretch calves & hamstrings",emoji:"🦵",quip:"High incline walks are brutal on calves.",       type:"binary", points:2 },
-    ]
-  },
-
-  // ── Strength: single-movement progressions ──────────────────────────────
-  {
-    id: "kettlebell", name: "Kettlebell Challenge", emoji: "🔔", category: "movement",
-    description: "30 days of kettlebell training. Swings, presses, carries — full-body strength built the old way.",
-    duration: 30, weeklyGoal: 60, defaultMode: "soft",
-    habits: [
-      { id:"kb-swing",   title:"KB swings",               emoji:"🔔", quip:"Hips drive the bell. Not the arms.",          type:"tiered", points:5,
-        tiers:[{label:"50 reps",pts:5},{label:"100 reps",pts:7},{label:"200 reps",pts:9}] },
-      { id:"kb-press",   title:"KB strength move",          emoji:"💪", quip:"Press, clean & press, or snatch. 3 sets each side.", type:"binary", points:3 },
-      { id:"kb-mobility",title:"Hip & thoracic mobility",  emoji:"🧘", quip:"KB training locks the hips. Undo it daily.", type:"binary", points:2 },
-    ]
-  },
-  {
-    id: "calisthenics", name: "Calisthenics", emoji: "🤸", category: "movement",
-    description: "30 days of bodyweight strength. Push, pull, and stabilise — no equipment needed.",
-    duration: 30, weeklyGoal: 65, defaultMode: "soft",
-    habits: [
-      { id:"cal-push",   title:"Push-ups",                emoji:"💪", quip:"Chest to floor. Lock out at the top.",          type:"tiered", points:4,
-        tiers:[{label:"5–15 reps",pts:4},{label:"16–30 reps",pts:6},{label:"30+ reps",pts:8}] },
-      { id:"cal-pull",   title:"Pull-ups or rows",        emoji:"🏋️", quip:"Chin over bar. Or ring rows if you're building.", type:"tiered", points:4,
-        tiers:[{label:"1–5 reps",pts:4},{label:"6–10 reps",pts:6},{label:"10+ reps",pts:8}] },
-      { id:"cal-dip",    title:"Dips or plank",           emoji:"🤸", quip:"Dips for strength. Plank for stability. Pick one.", type:"tiered", points:3,
-        tiers:[{label:"Plank 30+ sec / 5 dips",pts:3},{label:"Plank 1 min / 10 dips",pts:5},{label:"Plank 2 min / 20 dips",pts:7}] },
-    ]
-  },
-
-  // ── Nutrition / Health habits ────────────────────────────────────────────
-  {
-    id: "protein-challenge", name: "Protein Challenge", emoji: "🥩", category: "health",
-    description: "30 days of hitting your protein target every single day. Build muscle, cut cravings, and eat smarter.",
-    duration: 30, weeklyGoal: 65, defaultMode: "strict",
-    habits: [
-      { id:"pc-hit",     title:"Hit daily protein target", emoji:"🥩", quip:"0.8–1g per lb of bodyweight. Every day.",          type:"tiered", points:4,
-        tiers:[{label:"80–100g",pts:4},{label:"100–140g",pts:6},{label:"140g+",pts:8}] },
-      { id:"pc-breakfast",title:"Protein-first breakfast",emoji:"🍳", quip:"30g at breakfast kills cravings all day.",           type:"binary", points:2 },
-      { id:"pc-log",     title:"Log meals",                emoji:"📊", quip:"You can't hit what you don't track.",               type:"binary", points:2 },
-    ]
-  },
-  {
-    id: "fiber-challenge", name: "Fiber Challenge", emoji: "🥦", category: "health",
-    description: "30 days of hitting your daily fiber target. Better gut health, lower blood sugar, steadier energy, and fewer cravings.",
-    duration: 30, weeklyGoal: 60, defaultMode: "soft",
-    habits: [
-      { id:"fb-fiber",    title:"Hit fiber target",            emoji:"🥦", quip:"Most people eat 10–15g/day. Aim for 25–35g.", type:"tiered", points:4,
-        tiers:[{label:"15–20g",pts:2},{label:"20–25g",pts:4},{label:"25g+",pts:6}] },
-      { id:"fb-veg",      title:"3+ vegetable servings",       emoji:"🥗", quip:"A fist-sized serving at every main meal.",    type:"binary", points:3 },
-      { id:"fb-whole",    title:"Whole-grain or legume meal",  emoji:"🫘", quip:"Oats, lentils, beans, quinoa, brown rice.",    type:"binary", points:2 },
-      { id:"fb-label",    title:"Check fiber on one label",    emoji:"🔍", quip:"Most packaged food hides the fiber count.",   type:"binary", points:1 },
-    ]
-  },
-  {
-    id: "hydration", name: "Hydration Challenge", emoji: "💧", category: "health",
-    description: "30 days of hitting your water target every day. Better skin, energy, focus, and recovery.",
-    duration: 30, weeklyGoal: 55, defaultMode: "soft",
-    habits: [
-      { id:"hy-water",   title:"Hit daily water target",  emoji:"💧", quip:"Personalise to your size and climate.",             type:"tiered", points:4,
-        tiers:[{label:"1.5–2L",pts:4},{label:"2–3L",pts:6},{label:"3L+",pts:8}] },
-      { id:"hy-morning", title:"2 glasses before coffee", emoji:"🌅", quip:"You wake up dehydrated every single morning.",      type:"binary", points:2 },
-      { id:"hy-nosoda",  title:"No soda or juice",        emoji:"🚫", quip:"Liquid calories don't satisfy hunger. Cut them.",   type:"binary", points:2 },
     ]
   },
 
@@ -866,7 +490,7 @@ const TEMPLATES = [
     ],
   },
   {
-    id: "tour-de-france", name: "Tour de France", emoji: "🚴", category: "expedition",
+    id: "tour-de-france", name: "Grand Tour of France", emoji: "🚴", category: "expedition",
     description: "Ride the full 3,490 km route of the world's most iconic cycling race.",
     duration: 120, weeklyGoal: 5, defaultMode: "soft", routeKm: 3490,
     milestones: [
@@ -992,7 +616,7 @@ const TEMPLATES = [
 
   // ── Running Expeditions ──────────────────────────────────────────────────
   {
-    id: "comrades-ultra", name: "Comrades Ultra", emoji: "🏃", category: "expedition",
+    id: "comrades-ultra", name: "The 90 km Ultra", emoji: "🏃", category: "expedition",
     description: "Run the legendary 89 km Comrades Marathon from Pietermaritzburg to Durban, South Africa.",
     duration: 21, weeklyGoal: 5, defaultMode: "soft", routeKm: 89,
     milestones: [
@@ -1009,7 +633,7 @@ const TEMPLATES = [
     ]
   },
   {
-    id: "utmb", name: "Ultra Trail du Mont Blanc", emoji: "⛰️", category: "expedition",
+    id: "utmb", name: "Mont Blanc Ultra", emoji: "⛰️", category: "expedition",
     description: "Tackle the 171 km UTMB course circling Mont Blanc through France, Italy and Switzerland.",
     duration: 40, weeklyGoal: 5, defaultMode: "soft", routeKm: 171,
     milestones: [
@@ -1080,7 +704,7 @@ const TEMPLATES = [
 
   // ── Additional Cycling Expeditions ──────────────────────────────────────
   {
-    id: "raid-pyrenees", name: "Raid Pyrénéen", emoji: "🚴", category: "expedition",
+    id: "raid-pyrenees", name: "Pyrenees Crossing", emoji: "🚴", category: "expedition",
     description: "Cycle all 726 km of the legendary Pyrénées mountain route from the Atlantic coast to the Mediterranean.",
     duration: 45, weeklyGoal: 5, defaultMode: "soft", routeKm: 726,
     milestones: [
@@ -1148,50 +772,6 @@ const TEMPLATES = [
       { id:"exp-sleep", title:"Sleep 7+ hours", emoji:"😴", quip:"Recovery is part of the journey.", type:"binary", points:2 },
       { id:"exp-fuel",  title:"Fuel well today", emoji:"🍽️", quip:"Protein + carbs. Serious ground ahead.", type:"binary", points:2 },
     ],
-  },
-  {
-    id: "posture-fix", name: "Posture Fix", emoji: "🦴", category: "health",
-    description: "30 days of posture and mobility habits. Undo the damage from screens and sitting.",
-    duration: 30, weeklyGoal: 65, defaultMode: "soft",
-    habits: [
-      { id:"pf-check",   title:"Posture check every hour",    emoji:"📐", quip:"Shoulders back. Screen at eye level. Repeat.", type:"binary", points:2 },
-      { id:"pf-stretch", title:"10 min mobility / stretching",emoji:"🧘", quip:"Hip flexors, chest, and thoracic spine first.", type:"binary", points:3 },
-      { id:"pf-walk",    title:"15 min walk",                 emoji:"🚶", quip:"Walking resets posture better than anything.",  type:"binary", points:2 },
-      { id:"pf-desk",    title:"Desk or workstation check",   emoji:"💻", quip:"Monitor height, chair height, elbow angle.",    type:"binary", points:1 },
-    ]
-  },
-
-  // ── New Challenges ────────────────────────────────────────────────────────
-  {
-    id: "beginner-strength", name: "Beginner Strength 3×/Week", emoji: "🏋️", category: "movement",
-    description: "6 weeks of structured lifting for beginners. Three sessions a week — upper, lower, and full body — plus mobility and protein to support recovery.",
-    duration: 42, weeklyGoal: 45, defaultMode: "soft",
-    habits: [
-      { id:"bs-lift",    title:"Lift session",                emoji:"🏋️", quip:"Upper, lower, or full body — show up and lift.",
-        type:"tiered", points:5, tiers:[{label:"Upper body",pts:5},{label:"Lower body",pts:5},{label:"Full body",pts:5}] },
-      { id:"bs-mobility",title:"Mobility (10 min)",           emoji:"🧘", quip:"Warm up and cool down. Your joints will thank you.", type:"binary", points:2 },
-      { id:"bs-protein", title:"Hit protein target",          emoji:"🥩", quip:"Muscle can't build without protein. Hit the target.", type:"binary", points:3 },
-    ]
-  },
-  {
-    id: "pushup-challenge", name: "Push-Up Challenge", emoji: "💪", category: "movement",
-    description: "30 days of daily push-ups with progressive overload. Start where you are, build from there.",
-    duration: 30, weeklyGoal: 40, defaultMode: "soft",
-    habits: [
-      { id:"pu-pushups",  title:"Push-ups",                   emoji:"💪", quip:"Chest to floor. Lock out at the top. Count every rep.",
-        type:"tiered", points:2, tiers:[{label:"10 reps",pts:2},{label:"25 reps",pts:3},{label:"50 reps",pts:5},{label:"100+ reps",pts:7}] },
-      { id:"pu-stretch",  title:"Chest & shoulder stretch",   emoji:"🧘", quip:"Open up what you just worked. Keep the shoulders healthy.", type:"binary", points:1 },
-    ]
-  },
-  {
-    id: "pullup-progression", name: "Pull-Up & Row Progression", emoji: "🏋️", category: "movement",
-    description: "6 weeks of progressive pulling strength — from rows to full pull-ups. Includes scapular health work to keep shoulders robust.",
-    duration: 42, weeklyGoal: 38, defaultMode: "soft",
-    habits: [
-      { id:"pp-pull",     title:"Pull / row session",         emoji:"🏋️", quip:"Rows build to pull-ups. Both count. Track your reps.",
-        type:"tiered", points:2, tiers:[{label:"5 reps",pts:2},{label:"10 reps",pts:4},{label:"15 reps",pts:6},{label:"20+ reps",pts:8}] },
-      { id:"pp-scapular", title:"Scapular health (band work)", emoji:"🦴", quip:"Scapular retractions, Y-T-W raises, or band pull-aparts. Do them.", type:"binary", points:2 },
-    ]
   },];
 
 // ── Badge Definitions ──────────────────────────────────────────────────────
@@ -1278,27 +858,6 @@ const TEMPLATE_BADGES = {
     { id:"rn-10",       label:"Ten Runs",             desc:"Log 10 run sessions.",                             test: c => c.runsLogged >= 10 },
     { id:"rn-halfway",  label:"Halfway",              desc:"15 runs logged.",                                  test: c => c.runsLogged >= 15 },
     { id:"rn-done",     label:"Running Month Done",   desc:"Complete 30 days of running.",                     test: c => c.pctDone >= 99 && c.complete },
-  ],
-  "strength": [
-    { id:"st-first",    label:"First Rep",             desc:"Log your first lift session.",                     test: c => c.hasLifted },
-    { id:"st-pr",       label:"PR Hunter",             desc:"Hit a personal record.",                           test: c => c.hasPR },
-    { id:"st-week",     label:"Training Week",         desc:"7-day lifting streak.",                            test: c => c.streak >= 7 },
-    { id:"st-20",       label:"Gym Rat",               desc:"Log 20 lift sessions.",                            test: c => c.liftsLogged >= 20 },
-    { id:"st-done",     label:"Strength Month Done",   desc:"Complete 30 days of strength training.",           test: c => c.pctDone >= 99 && c.complete },
-  ],
-  "yoga-flexibility": [
-    { id:"yf-first",    label:"First Flow",        desc:"Complete your first yoga session.",                 test: c => c.yogaLogged >= 1 },
-    { id:"yf-week",     label:"Yoga Week",         desc:"7-day yoga streak.",                               test: c => c.yogaStreak >= 7 },
-    { id:"yf-flow",     label:"Full Flow",         desc:"Log 20 yoga sessions.",                            test: c => c.yogaLogged >= 20 },
-    { id:"yf-steady",   label:"Steady Practice",   desc:"Log 25 yoga sessions.",                            test: c => c.yogaLogged >= 25 },
-    { id:"yf-done",     label:"Yoga Month Done",   desc:"Complete 30 days of yoga.",                        test: c => c.pctDone >= 99 && c.complete },
-  ],
-  "core-abs": [
-    { id:"ca-first",    label:"Core Activated",    desc:"Log your first core session.",                     test: c => c.coreLogged >= 1 },
-    { id:"ca-week",     label:"Iron Core",         desc:"7-day core streak.",                               test: c => c.streak >= 7 },
-    { id:"ca-blast",    label:"Core Blast",        desc:"Log 15 core sessions.",                            test: c => c.coreLogged >= 15 },
-    { id:"ca-20",       label:"Core Sessions",     desc:"Log 20 core workouts.",                            test: c => c.coreLogged >= 20 },
-    { id:"ca-done",     label:"Core Month Done",   desc:"Complete 30 days of core training.",               test: c => c.pctDone >= 99 && c.complete },
   ],
 
   // Expedition routes - km-milestone badges
@@ -1449,10 +1008,8 @@ const TEMPLATE_BADGES = {
 
 // ── Challenge Chains (what comes next after each template) ────────────────
 const CHALLENGE_CHAINS = {
-  "30-pushups":         "strength",
   "walking":            "running",
   "running":            "cycling",
-  "core-abs":           "strength",
   "pct":                "appalachian",
   // Rowing progression
   "thames-row":         "danube-row",
@@ -1466,11 +1023,6 @@ const CHALLENGE_CHAINS = {
   "raid-pyrenees":      "tour-de-france",
   "tour-de-france":     "trans-am-bike",
   // Endurance training progression
-  "half-marathon-prep": "marathon-training",
-  "marathon-training":  "ironman-703",
-  "ironman-703":        "ironman-full",
-  "tough-mudder":       "spartan-race",
-  "spartan-race":       "ironman-703",
 };
 
 // ── PhotoDB — IndexedDB wrapper for progress photos ───────────────────────
@@ -4066,6 +3618,8 @@ function renderChallengeCard(c) {
     ? Object.values(day.distances).reduce((s,v) => s + (Number(v)||0), 0) : null;
   const tier         = tpl ? (TEMPLATE_TIERS[tpl.id] || "common") : null;
   const tierData     = tier ? TIERS[tier] : null;
+  const challengeBadgeTotal = c.templateId ? (TEMPLATE_BADGES[c.templateId]?.length || 0) : 0;
+  const badgeMeta = challengeBadgeTotal ? `${c.badges.length}/${challengeBadgeTotal} badges` : `${c.badges.length} ${c.badges.length === 1 ? "badge" : "badges"}`;
   const resumeNudge = c.status === "paused" && c.resumeReminderDate && c.resumeReminderDate <= today;
   return `
   <div class="challenge-card-wrap">
@@ -4091,8 +3645,8 @@ function renderChallengeCard(c) {
         <div class="cc-fill" style="width:${isExpedition && routePct !== null ? routePct : pct}%"></div>
       </div>
       <div class="cc-sub">${isExpedition && routePct !== null
-        ? `${routePct}% dist · ${todayInfo ? todayInfo.percent : 0}% today · ${pct}% time`
-        : `${pct}% complete · ${c.badges.length} ${c.badges.length === 1 ? "badge" : "badges"}`}</div>
+        ? `${routePct}% dist - ${todayInfo ? todayInfo.percent : 0}% today - ${pct}% time`
+        : `${pct}% complete - ${badgeMeta}`}</div>
     </button>
     ${resumeNudge ? `<div class="resume-nudge"><i class="ti ti-clock"></i> Reminder to resume! <button class="link-btn" data-pause-challenge="${c.id}">Resume now →</button></div>` : ""}
   </div>`;
@@ -4147,6 +3701,8 @@ function renderChallengeDetail(c) {
   const dUnitDet      = isFloorsDet ? "floors" : (globalDistD === "miles" ? "mi" : "km");
   const factorDet     = dUnitDet === "mi" ? MI_PER_KM_D : 1;
   const totalKmDisplay = isExpedition ? Math.round(totalNativeKm * factorDet * 10) / 10 : null;
+  const challengeBadgeTotal = c.templateId ? (TEMPLATE_BADGES[c.templateId]?.length || 0) : 0;
+  const badgeStat = challengeBadgeTotal ? `${c.badges.length}/${challengeBadgeTotal}` : c.badges.length;
   return `
   <main${_viewChanged ? ` class="slide-in-right"` : ""}>
     <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px">
@@ -4157,7 +3713,7 @@ function renderChallengeDetail(c) {
         <i class="ti ${tpl?challengeIcon(tpl):"ti-target"}" style="color:var(--text-dim);font-size:21px"></i>
         <div>
           <div style="font-size:18px;font-weight:500">${esc(c.name)}${tierTag(c.templateId)}</div>
-          <div style="font-size:12px;color:var(--text-dim)">${c.startDate}${c.noEndDate ? " · Ongoing" : ` → ${c.endDate}`}</div>
+          <div style="font-size:12px;color:var(--text-dim)">${c.startDate}${c.noEndDate ? " - Ongoing" : ` -> ${c.endDate}`}</div>
         </div>
       </div>
     </div>
@@ -4167,22 +3723,22 @@ function renderChallengeDetail(c) {
         ? statCard(`<i class="ti ti-map-2 stat-ic"></i> Distance`, totalKmDisplay.toFixed(isFloorsDet?0:1), dUnitDet)
         : statCard(`<i class="ti ti-bolt stat-ic"></i> Total pts`, totalPts, "")}
       ${statCard(`<i class="ti ti-checkbox stat-ic"></i> Active days`, `${activeDaysDone}/${activeTotal}`, "")}
-      ${statCard(`<i class="ti ti-medal stat-ic"></i> Badges`, c.badges.length, "")}
+      ${statCard(`<i class="ti ti-medal stat-ic"></i> Badges`, badgeStat, "")}
     </div>
-    ${pct !== null ? `<div class="detail-progress-bar" style="margin-bottom:14px"><div class="detail-progress-fill" style="width:${pct}%"></div><div class="detail-progress-label">${pct}% journey complete</div></div>` : `<div class="detail-progress-bar" style="margin-bottom:14px"><div class="detail-progress-label">Day ${dayNumber} · Ongoing</div></div>`}
+    ${pct !== null ? `<div class="detail-progress-bar" style="margin-bottom:14px"><div class="detail-progress-fill" style="width:${pct}%"></div><div class="detail-progress-label">${pct}% complete</div></div>` : `<div class="detail-progress-bar" style="margin-bottom:14px"><div class="detail-progress-label">Day ${dayNumber} - Ongoing</div></div>`}
     ${isExpedition ? renderRouteProgress(c, tpl) : ""}
 
 
     ${nextChainT && c.status === "completed" ? `
     <div class="chain-next-banner" data-start-suggested="${nextChainT.id}">
-      <div class="cnb-label">Continue your journey →</div>
+      <div class="cnb-label">Continue your journey -></div>
       <div class="cnb-row">
         <span class="cnb-emoji"><i class="ti ${challengeIcon(nextChainT)}"></i></span>
         <div class="cnb-info">
           <div class="cnb-name">${nextChainT.name}</div>
           <div class="cnb-meta">${nextChainT.duration} days � Level up</div>
         </div>
-        <span class="cnb-arrow">→</span>
+        <span class="cnb-arrow">-></span>
       </div>
     </div>` : ""}
 
@@ -4205,7 +3761,7 @@ function renderChallengeDetail(c) {
           const routePct = routeKm ? Math.min(100, Math.round((kmTotal / routeKm) * 100)) : null;
           return `<div class="habit-preview-item">
             <span class="hpi-title">${esc(h.title)}</span>
-            <span class="hpi-rate" style="color:var(--accent)">${kmTotal.toFixed(1)} km${routePct !== null ? ` · ${routePct}% of route` : ` · ${daysLogged}d logged`}</span>
+            <span class="hpi-rate ${routePct === 0 || daysLogged === 0 ? "hpi-rate--zero" : routePct === 100 ? "hpi-rate--done" : "hpi-rate--progress"}">${kmTotal.toFixed(1)} km${routePct !== null ? ` � ${routePct}% of route` : ` � ${daysLogged}d logged`}</span>
           </div>`;
         }
         if (h.type === "measurement") {
@@ -4238,10 +3794,10 @@ function renderChallengeDetail(c) {
         const available = allDays.filter(d => d.mode !== "rest" && (d.done.length > 0 || d.recovered));
         const done = available.filter(d => d.done.includes(h.id)).length;
         const hpct = available.length ? Math.round((done / available.length) * 100) : null;
-        const color = hpct == null ? "var(--text-faint)" : hpct >= 80 ? "var(--success)" : hpct >= 50 ? "#f5a623" : "var(--secondary)";
+        const rateClass = hpct == null || hpct === 0 ? "hpi-rate--zero" : hpct >= 100 ? "hpi-rate--done" : "hpi-rate--progress";
         return `<div class="habit-preview-item">
           <span class="hpi-title">${esc(h.title)}</span>
-          ${hpct != null ? `<span class="hpi-rate" style="color:${color}">${hpct}%</span>` : ""}
+          ${hpct != null ? `<span class="hpi-rate ${rateClass}">${hpct}%</span>` : ""}
         </div>`;
       }).join("")}
     </div>
@@ -4419,7 +3975,7 @@ function renderWeekCard(c, week, isCurrent) {
         ? `<span class="wc-km-badge">${isFloorsW ? Math.round(weekKm) : weekKm.toFixed(1)} ${isFloorsW ? "fl" : "km"}</span>`
         : goalMet ? `<span class="wc-goal-hit">✓ Goal</span>` : ""}
     </div>
-    ${weekGoal ? `<div class="wc-goal-track"><div class="wc-goal-fill${goalMet ? " wc-goal-done" : ""}" style="width:${fillPct}%"></div></div>` : ""}
+    ${weekGoal ? `<div class="wc-goal-track"><div class="wc-goal-fill${goalMet ? " wc-goal-done" : ""}" style="width:${fillPct}%"></div></div><div class="wc-points-help">Task values create points. Weekly target is a pacing guide.</div>` : ""}
   </div>`;
 }
 
@@ -4496,17 +4052,14 @@ function renderMonthCalendar(challenge) {
 
 function getQuizRecommendation(q) {
   const { goal, time, level } = q;
-  if (goal === "fitness" && level === "hardcore" && (time === "60" || time === "90")) return "hyrox";
-  if (goal === "fitness" && level === "hardcore") return "calisthenics";
-  if (goal === "fitness" && level === "some" && (time === "60" || time === "90")) return "strength";
-  if (goal === "fitness" && level === "some") return "running";
-  if (goal === "fitness" && level === "beginner") return "c25k";
+  if (goal === "fitness" && level === "hardcore") return "running";
+  if (goal === "fitness" && level === "some") return "cycling";
   if (goal === "fitness") return "walking";
-  if (goal === "endurance" && level === "hardcore") return "marathon-training";
-  if (goal === "endurance" && level === "some") return "half-marathon-prep";
-  if (goal === "endurance") return "c25k";
-  if (goal === "health") return "weight-loss-30";
-  if (goal === "explore" && level === "hardcore") return "appalachian";
+  if (goal === "endurance" && level === "hardcore") return "appalachian";
+  if (goal === "endurance" && level === "some") return "camino";
+  if (goal === "endurance") return "west-highland-way";
+  if (goal === "health") return "zone2";
+  if (goal === "explore" && level === "hardcore") return "pct";
   if (goal === "explore" && level === "some") return "camino";
   if (goal === "explore") return "west-highland-way";
   return "walking";
@@ -4519,7 +4072,6 @@ function renderBuilderQuiz() {
     { id:"fitness",    label:"Get physically fitter",         icon:"ti-barbell" },
     { id:"endurance",  label:"Train for an event",            icon:"ti-medal" },
     { id:"explore",    label:"Conquer a route or expedition", icon:"ti-map-2" },
-    { id:"health",     label:"Track my health",               icon:"ti-heart-rate-monitor" },
   ];
   const timeOpts  = [
     { id:"15", label:"15–30 min" },
@@ -4630,8 +4182,8 @@ function renderBuilderTemplates() {
     { id:"expedition", label:"Expeditions" },
   ];
   const orderedCats = cats;
-  const POPULAR_IDS = ["walking","running","c25k","strength","zone2","swim-foundation","swim-1k","hyrox","half-marathon-prep","weight-loss-30","calisthenics","everest-bc","camino","cycling"];
-  const START_HERE_IDS = ["walking","dog-walk","c25k","recovery-reset","pushup-challenge","posture-fix","pilates","zone2","swim-foundation","hydration","beginner-strength"];
+  const POPULAR_IDS = ["walking","running","cycling","dog-walk","zone2","everest-bc","camino","west-highland-way","pct","route66","danube-row","kilimanjaro-stairmaster"];
+  const START_HERE_IDS = ["walking","dog-walk","cycling","running","zone2","west-highland-way","thames-row","everest-bc","camino","comrades-ultra"];
   const filterTabs = [
     { id:"all",      label:"All" },
     { id:"popular",  label:"Popular" },
@@ -5466,11 +5018,11 @@ function renderObHero() {
 
 function renderObGoal() {
   const goals = [
-    { icon:"ti-run",                label:"Get Active",          desc:"Walking, running, cycling",              template:"walking" },
-    { icon:"ti-barbell",            label:"Transform My Body",    desc:"Strength, calisthenics, body comp",      template:"strength" },
-    { icon:"ti-heart-rate-monitor", label:"Track My Health",      desc:"Weight, BP, glucose, sleep",             template:"sleep-tracker" },
-    { icon:"ti-medal",              label:"Train for an Event",   desc:"Half marathon, ironman, OCR race",       template:"half-marathon-prep" },
-    { icon:"ti-map-2",              label:"Conquer a Route",      desc:"Pacific Crest Trail, Camino, UTMB",     template:"camino" },
+    { icon:"ti-walk",               label:"Get Active",        desc:"Walking, running, cycling",             template:"walking" },
+    { icon:"ti-map-2",              label:"Conquer a Route",   desc:"Camino, West Highland Way, PCT",        template:"camino" },
+    { icon:"ti-mountain",           label:"Climb a Mountain",  desc:"Everest, Kilimanjaro, Mont Blanc",      template:"everest-bc" },
+    { icon:"ti-bike",               label:"Go the Distance",   desc:"Cycle across a country",                template:"cycling" },
+    { icon:"ti-heart-rate-monitor", label:"Build Endurance",   desc:"Zone 2 base-building hours",            template:"zone2" },
   ];
   return `
   <div class="ob-screen ob-screen--slide" role="main">
@@ -7351,6 +6903,39 @@ if (!state.migrations["expeditionGoalV1"]) {
   state.migrations["expeditionGoalV1"] = true;
   saveState();
 }
+// Migration: rename saved walking challenge habit and backfill newly added swim badges
+if (!state.migrations["fitnessTemplateRefreshV1"]) {
+  for (const c of Object.values(state.challenges)) {
+    let pointsNeedUpdate = false;
+    if (c.templateId === "walking") {
+      for (const h of c.habits || []) {
+        if (h.id === "wk-phone" || h.title === "Phone-free walk") {
+          h.id = "wk-pace";
+          h.title = "Brisk pace segment";
+          h.quip = "Add 5-10 minutes where breathing gets heavier.";
+          h.type = "binary";
+          h.points = 2;
+          pointsNeedUpdate = true;
+        }
+      }
+      if (pointsNeedUpdate) {
+        for (const day of Object.values(c.days || {})) {
+          if (Array.isArray(day.done) && day.done.includes("wk-phone") && !day.done.includes("wk-pace")) {
+            day.done = day.done.map(id => id === "wk-phone" ? "wk-pace" : id);
+          }
+          updateDayPoints(c, day);
+        }
+      }
+    }
+    if (["swim-foundation", "swim-1k", "open-water-prep"].includes(c.templateId)) {
+      checkBadges(c);
+    }
+  }
+  state.xp = recalcXP();
+  state.migrations["fitnessTemplateRefreshV1"] = true;
+  saveState();
+}
+
 // Show onboarding for truly new users (no challenges yet)
 if (!Object.keys(state.challenges).length) {
   onboardingStep = 0;
