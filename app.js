@@ -3785,9 +3785,10 @@ function renderChallengeDetail(c) {
     <div class="section-label">Calendar</div>
     ${renderMonthCalendar(c)}
 
+    ${c.habits.some(h => h.type !== "distance") ? `
     <div class="section-label">Tasks</div>
     <div class="habit-preview-list" style="margin-bottom:14px">
-      ${c.habits.map(h => {
+      ${c.habits.filter(h => h.type !== "distance").map(h => {
         if (h.type === "distance") {
           const allDays = Object.values(c.days);
           const kmTotal = allDays.reduce((s,d) => s + (Number(d.distances?.[h.id]) || 0), 0);
@@ -3835,7 +3836,7 @@ function renderChallengeDetail(c) {
           ${hpct != null ? `<span class="hpi-rate ${rateClass}">${hpct}%</span>` : ""}
         </div>`;
       }).join("")}
-    </div>
+    </div>` : ""}
 
     ${hasPhotoHabit ? `
     <div class="section-label">Progress Photos</div>
