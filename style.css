@@ -5829,3 +5829,18 @@ details[open] .badge-locked-summary::before {
 /* -- Endur Field -- deadline extend nudge -------------------------------- */
 .route-extend { display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap; margin-top:10px; padding-top:10px; border-top:1px solid var(--border); font-size:11px; letter-spacing:0.3px; color:var(--text-faint); }
 .route-extend .link-btn { color:var(--accent); font-size:11px; white-space:nowrap; }
+
+
+/* -- Endur Field -- This Week block -------------------------------------- */
+.this-week { padding:14px 16px; margin-bottom:14px; }
+.tw-top { display:flex; align-items:center; justify-content:space-between; margin-bottom:10px; }
+.tw-label { font-size:11px; font-weight:500; letter-spacing:2px; text-transform:uppercase; color:var(--text-dim); }
+.tw-streak { font-size:11px; font-weight:500; letter-spacing:.5px; text-transform:uppercase; color:var(--accent); }
+.tw-streak i, .tw-won i { font-size:12px; vertical-align:-1px; }
+.tw-main { display:flex; align-items:baseline; gap:8px; margin-bottom:9px; }
+.tw-done { font-size:24px; font-weight:500; color:var(--text); font-variant-numeric:tabular-nums; }
+.tw-goal { font-size:14px; color:var(--text-dim); font-variant-numeric:tabular-nums; }
+.tw-togo { margin-left:auto; font-size:11px; letter-spacing:.5px; text-transform:uppercase; color:var(--text-faint); }
+.tw-won { margin-left:auto; font-size:11px; letter-spacing:.5px; text-transform:uppercase; color:var(--accent); }
+.tw-track { height:4px; background:var(--track); border-radius:2px; overflow:hidden; }
+.tw-fill { height:100%; background:var(--accent); border-radius:2px; transition:width .5s; }

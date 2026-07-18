@@ -1757,6 +1757,56 @@ function challengeWeeks(challenge) {
   return weeks;
 }
 
+// ── Win the Week: weekly distance sub-target + week streak ──────────────────
+function getWeeklyProgress(c) {
+  const dist = c.habits.find(h => h.type === "distance");
+  const routeKm = dist ? challengeRouteKm(c) : null;
+  if (!routeKm) return null;
+  const totalDays = c.noEndDate ? null : diffDays(c.startDate, c.endDate) + 1;
+  const weeks = challengeWeeks(c);
+  const plannedWeeks = totalDays ? Math.max(1, Math.ceil(totalDays / 7)) : Math.max(1, weeks.length);
+  const goalNative = routeKm / plannedWeeks;
+  const kmFor = keys => keys.reduce((s, k) => {
+    const d = c.days[k];
+    return s + (d && d.distances ? Object.values(d.distances).reduce((a, v) => a + (Number(v) || 0), 0) : 0);
+  }, 0);
+  const today = todayKey();
+  const curWeek = weeks.find(w => w.allDays.includes(today)) || weeks[weeks.length - 1];
+  const curIdx = curWeek ? weeks.indexOf(curWeek) : -1;
+  const thisWeekKm = curWeek ? kmFor(curWeek.allDays) : 0;
+  let streak = 0;
+  for (let i = curIdx - 1; i >= 0; i--) {
+    if (kmFor(weeks[i].allDays) >= goalNative - 1e-6) streak++; else break;
+  }
+  const unit = unitLabelFor(dist.unit);
+  const isFloors = dist.unit === "floors";
+  const f = unit === "mi" ? 0.621371 : 1;
+  const r = v => isFloors ? Math.round(v * f) : Math.round(v * f * 10) / 10;
+  return {
+    unit, streak, weekNum: curWeek ? curWeek.num : 1,
+    goal: r(goalNative), done: r(thisWeekKm), toGo: r(Math.max(0, goalNative - thisWeekKm)),
+    pct: Math.min(100, Math.round((thisWeekKm / goalNative) * 100)),
+    won: thisWeekKm >= goalNative - 1e-6,
+  };
+}
+
+function renderThisWeek(c) {
+  const w = getWeeklyProgress(c);
+  if (!w) return "";
+  return `
+  <section class="this-week panel">
+    <div class="tw-top">
+      <span class="tw-label">This week</span>
+      ${w.streak > 0 ? `<span class="tw-streak"><i class="ti ti-flame"></i> ${w.streak}-week streak</span>` : ""}
+    </div>
+    <div class="tw-main">
+      <span class="tw-done">${w.done}</span><span class="tw-goal"> / ${w.goal} ${w.unit}</span>
+      ${w.won ? `<span class="tw-won"><i class="ti ti-check"></i> week won</span>` : `<span class="tw-togo">${w.toGo} ${w.unit} to go</span>`}
+    </div>
+    <div class="tw-track"><div class="tw-fill" style="width:${w.pct}%"></div></div>
+  </section>`;
+}
+
 function createChallenge(form) {
   const template = form.templateId ? TEMPLATES.find(t => t.id === form.templateId) : null;
   const habits = template ? JSON.parse(JSON.stringify(template.habits)) : JSON.parse(JSON.stringify(form.habits));
@@ -2668,8 +2718,9 @@ function renderToday() {
         }
         return "";
       })();
+      const thisWeek = isDist ? renderThisWeek(challenge) : "";
       return isDist
-        ? logSection + map + extras + nudge
+        ? thisWeek + logSection + map + extras + nudge
         : stage + logSection + extras + nudge + map;
     })()}
   </main>`;
