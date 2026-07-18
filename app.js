@@ -2,7 +2,7 @@
 
 const APP_VERSION = "2026.06.25.7";
 // Public URL shown on shared cards/text. UPDATE to your real domain before launch.
-const SHARE_URL = "vermillion-marshmallow-d68dba.netlify.app";
+const SHARE_URL = "merry-selkie-4ae2f1.netlify.app";
 const STORAGE_KEY = "endur_v1";
 const OLD_KEY     = "cruise_mode_v1";
 const RING_CIRC   = 2 * Math.PI * 90;
