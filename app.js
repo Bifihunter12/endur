@@ -3782,13 +3782,8 @@ function renderChallengeDetail(c) {
       </div>
     </div>` : ""}
 
-    <div class="detail-view-tabs">
-      <button class="dvt-tab ${challengeDetailView==="weeks"?"active":""}" data-detail-view="weeks">Weeks</button>
-      <button class="dvt-tab ${challengeDetailView==="calendar"?"active":""}" data-detail-view="calendar">Calendar</button>
-    </div>
-    ${challengeDetailView === "calendar"
-      ? renderMonthCalendar(c)
-      : `<div class="week-history">${weeks.map((w,i)=>renderWeekCard(c,w,i===curWeekIdx)).join("")}</div>`}
+    <div class="section-label">Calendar</div>
+    ${renderMonthCalendar(c)}
 
     <div class="section-label">Tasks</div>
     <div class="habit-preview-list" style="margin-bottom:14px">
