@@ -2669,7 +2669,7 @@ function renderToday() {
         return "";
       })();
       return isDist
-        ? logSection + map + stage + extras + nudge
+        ? logSection + map + extras + nudge
         : stage + logSection + extras + nudge + map;
     })()}
   </main>`;
@@ -3158,7 +3158,7 @@ function renderRouteProgress(challenge, template) {
   <section class="route-progress-section panel">
     <div class="route-progress-header">
       <span class="route-progress-name"><i class="ti ${template?challengeIcon(template):"ti-map-2"}"></i> ${template?.name ?? challenge.name}</span>
-      <span class="route-progress-km">${isFloors ? Math.round(totalDisplay) : totalDisplay.toFixed(1)} <span style="font-weight:500;color:var(--text-dim)">/ ${isFloors ? Math.round(routeDisplay).toLocaleString() : routeDisplay.toLocaleString()} ${displayUnit}</span></span>
+      <span class="route-progress-km">${isFloors ? Math.round(totalDisplay) : totalDisplay.toFixed(1)} <span style="font-weight:500;color:var(--text-dim)">/ ${isFloors ? Math.round(routeDisplay).toLocaleString() : routeDisplay.toLocaleString()} ${displayUnit}</span> <span style="color:var(--accent)">· ${pct}%</span></span>
     </div>
     ${routeMap}
     <div class="route-pace">
