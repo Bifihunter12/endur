@@ -404,7 +404,7 @@ const TEMPLATES = [
     id: "everest-bc", name: "Everest Base Camp", emoji: "🏔️", category: "expedition",
     description: "Trek 130 km through the Himalayas to the foot of the world's highest peak.",
     duration: 45, weeklyGoal: 5, defaultMode: "soft", routeKm: 130,
-    routeGeo: [[0.08,0.85],[0.2,0.78],[0.32,0.72],[0.45,0.6],[0.55,0.52],[0.68,0.4],[0.8,0.28],[0.9,0.16]],
+    routeGeo: [[0.428,1.0],[0.404,0.827],[0.406,0.629],[0.472,0.528],[0.557,0.072],[0.596,0.0]],
     milestones: [
       { km: 10, name: "Phakding", blurb: "The trail leaves Lukla and drops to the Dudh Kosi's roaring river." },
       { km: 40, name: "Namche Bazaar", blurb: "The Sherpa capital, clinging to the mountainside -- acclimatise here." },
@@ -420,7 +420,7 @@ const TEMPLATES = [
     id: "west-highland-way", name: "West Highland Way", emoji: "🌄", category: "expedition",
     description: "Walk 154 km through the Scottish Highlands from Milngavie to Fort William — lochs, glens, and mountain passes.",
     duration: 30, weeklyGoal: 5, defaultMode: "soft", routeKm: 154,
-    routeGeo: [[0.5,0.92],[0.44,0.78],[0.54,0.66],[0.46,0.54],[0.56,0.42],[0.48,0.3],[0.52,0.14]],
+    routeGeo: [[0.617,1.0],[0.542,0.84],[0.498,0.588],[0.5,0.433],[0.425,0.117],[0.383,0.0]],
     milestones: [
       { km: 20, name: "Balmaha", blurb: "The path meets Loch Lomond's wooded eastern shore." },
       { km: 50, name: "Inverarnan", blurb: "The loch behind you, the glens and moors open ahead." },
@@ -436,7 +436,7 @@ const TEMPLATES = [
     id: "tour-du-mont-blanc", name: "Tour du Mont Blanc", emoji: "🗻", category: "expedition",
     description: "Circle the Mont Blanc massif across France, Italy and Switzerland — 170 km of alpine trail through 3 countries.",
     duration: 60, weeklyGoal: 5, defaultMode: "soft", routeKm: 170,
-    routeGeo: [[0.5,0.85],[0.3,0.7],[0.25,0.45],[0.4,0.25],[0.6,0.22],[0.76,0.42],[0.72,0.66],[0.5,0.83]],
+    routeGeo: [[0.335,0.581],[0.232,0.873],[0.566,1.0],[0.75,0.411],[0.768,0.0],[0.428,0.445]],
     milestones: [
       { km: 30, name: "Les Contamines", blurb: "The first valley, the massif's white summits rising ahead." },
       { km: 60, name: "Courmayeur", blurb: "Over the border into Italy, in Mont Blanc's southern shadow." },
@@ -452,7 +452,7 @@ const TEMPLATES = [
     id: "john-muir-trail", name: "John Muir Trail", emoji: "🦅", category: "expedition",
     description: "Hike 340 km through California's Sierra Nevada — from Yosemite Valley to the summit of Mount Whitney.",
     duration: 90, weeklyGoal: 5, defaultMode: "soft", routeKm: 340,
-    routeGeo: [[0.5,0.08],[0.44,0.24],[0.54,0.4],[0.46,0.56],[0.56,0.72],[0.5,0.9]],
+    routeGeo: [[0.316,0.108],[0.376,0.0],[0.57,0.542],[0.513,0.49],[0.649,0.728],[0.684,1.0]],
     milestones: [
       { km: 50, name: "Tuolumne Meadows", blurb: "Yosemite's high meadows, granite domes on every side." },
       { km: 120, name: "Evolution Valley", blurb: "A cathedral of peaks named for the great naturalists." },
@@ -468,7 +468,7 @@ const TEMPLATES = [
     id: "camino", name: "Camino de Santiago", emoji: "⛪", category: "expedition",
     description: "Walk 790 km across Spain on the ancient pilgrimage route to Santiago de Compostela.",
     duration: 90, weeklyGoal: 5, defaultMode: "soft", routeKm: 790,
-    routeGeo: [[0.05,0.55],[0.15,0.47],[0.25,0.58],[0.35,0.5],[0.45,0.63],[0.55,0.52],[0.65,0.6],[0.75,0.44],[0.85,0.52],[0.95,0.4]],
+    routeGeo: [[1.0,0.338],[0.944,0.477],[0.663,0.662],[0.408,0.561],[0.266,0.582],[0.0,0.449]],
     milestones: [
       { km: 75, name: "Pamplona", blurb: "The first city on the way -- your opening stretch is behind you." },
       { km: 250, name: "Burgos", blurb: "Its Gothic cathedral marks the edge of the meseta, the high plains ahead." },
@@ -484,7 +484,7 @@ const TEMPLATES = [
     id: "appalachian", name: "Appalachian Trail", emoji: "🌲", category: "expedition",
     description: "Hike the full 3,540 km from Georgia to Maine — one of the world's great long trails.",
     duration: 365, weeklyGoal: 5, defaultMode: "soft", routeKm: 3540,
-    routeGeo: [[0.45,0.95],[0.52,0.82],[0.43,0.7],[0.55,0.58],[0.46,0.46],[0.56,0.34],[0.47,0.22],[0.53,0.08]],
+    routeGeo: [[0.26,1.0],[0.442,0.656],[0.486,0.461],[0.621,0.249],[0.665,0.145],[0.74,0.0]],
     milestones: [
       { km: 300, name: "Shenandoah Valley", blurb: "Blue Ridge country, black bears and long green tunnels of trees." },
       { km: 900, name: "Pennsylvania", blurb: "The infamous rocks that test every thru-hiker's feet." },
@@ -500,7 +500,7 @@ const TEMPLATES = [
     id: "tour-de-france", name: "Grand Tour of France", emoji: "🚴", category: "expedition",
     description: "Ride the full 3,490 km route of the world's most iconic cycling race.",
     duration: 120, weeklyGoal: 5, defaultMode: "soft", routeKm: 3490,
-    routeGeo: [[0.5,0.15],[0.28,0.28],[0.22,0.55],[0.38,0.78],[0.62,0.8],[0.78,0.55],[0.7,0.28],[0.5,0.15]],
+    routeGeo: [[0.205,0.075],[0.205,0.075],[0.607,0.637],[0.473,1.0],[0.795,0.554],[0.573,0.0]],
     milestones: [
       { km: 400, name: "Brittany Coast", blurb: "Flat, fast kilometres along the windswept Atlantic edge." },
       { km: 900, name: "Massif Central", blurb: "Rolling volcanic uplands in the heart of France." },
@@ -516,7 +516,7 @@ const TEMPLATES = [
     id: "route66", name: "Route 66", emoji: "🚗", category: "expedition",
     description: "Travel the 3,940 km Mother Road from Chicago, Illinois to Santa Monica, California.",
     duration: 180, weeklyGoal: 5, defaultMode: "soft", routeKm: 3940,
-    routeGeo: [[0.9,0.15],[0.78,0.28],[0.68,0.35],[0.55,0.45],[0.42,0.5],[0.3,0.62],[0.18,0.72],[0.08,0.82]],
+    routeGeo: [[1.0,0.162],[0.935,0.341],[0.68,0.713],[0.54,0.734],[0.384,0.746],[0.0,0.838]],
     milestones: [
       { km: 500, name: "Springfield, IL", blurb: "Out of Chicago onto the Mother Road heading west." },
       { km: 1100, name: "Oklahoma City", blurb: "Across the plains, diners and neon of the old highway." },
@@ -532,7 +532,7 @@ const TEMPLATES = [
     id: "amazon-river", name: "Amazon River", emoji: "🌿", category: "expedition",
     description: "Navigate 6,437 km down the world's greatest river from the Andes to the Atlantic.",
     duration: 365, weeklyGoal: 5, defaultMode: "soft", routeKm: 6437,
-    routeGeo: [[0.06,0.5],[0.2,0.55],[0.35,0.48],[0.5,0.54],[0.65,0.47],[0.8,0.52],[0.94,0.48]],
+    routeGeo: [[0.0,0.642],[0.139,0.684],[0.557,0.586],[0.781,0.525],[0.975,0.37],[1.0,0.316]],
     milestones: [
       { km: 500, name: "Iquitos, Peru", blurb: "Deep in the rainforest, reachable only by river or air." },
       { km: 1500, name: "Leticia", blurb: "The three-borders town where Peru, Colombia and Brazil meet." },
@@ -548,7 +548,7 @@ const TEMPLATES = [
     id: "pct", name: "Pacific Crest Trail", emoji: "🌲", category: "expedition",
     description: "Walk 4,286 km from the Mexican border to the Canadian border — through the Sierra Nevada and Cascades. 5 months. No shortcuts.",
     duration: 150, weeklyGoal: 5, defaultMode: "soft", routeKm: 4286,
-    routeGeo: [[0.5,0.95],[0.42,0.82],[0.55,0.7],[0.45,0.58],[0.58,0.46],[0.44,0.34],[0.52,0.22],[0.46,0.08]],
+    routeGeo: [[0.562,1.0],[0.561,0.982],[0.539,0.896],[0.523,0.848],[0.521,0.744],[0.449,0.518],[0.438,0.335],[0.461,0.091],[0.465,0.0]],
     milestones: [
       { km: 160, name: "San Diego foothills", blurb: "Chaparral hills climbing out of the border country." },
       { km: 700, name: "Los Angeles area", blurb: "The dry ranges east of the city sprawl." },
@@ -619,7 +619,7 @@ const TEMPLATES = [
     id: "comrades-ultra", name: "The 90 km Ultra", emoji: "🏃", category: "expedition",
     description: "Run the legendary 89 km Comrades Marathon from Pietermaritzburg to Durban, South Africa.",
     duration: 21, weeklyGoal: 5, defaultMode: "soft", routeKm: 89,
-    routeGeo: [[0.15,0.2],[0.3,0.35],[0.45,0.45],[0.55,0.6],[0.72,0.7],[0.88,0.82]],
+    routeGeo: [[0.0,0.008],[0.39,0.654],[0.58,0.585],[0.764,0.893],[0.935,0.958],[1.0,0.992]],
     milestones: [
       { km: 17, name: "Drummond", blurb: "Halfway, at the top of the great climbs." },
       { km: 36, name: "Botha's Hill", blurb: "The crowds thick along the ridgeline." },
@@ -635,7 +635,7 @@ const TEMPLATES = [
     id: "utmb", name: "Mont Blanc Ultra", emoji: "⛰️", category: "expedition",
     description: "Tackle the 171 km UTMB course circling Mont Blanc through France, Italy and Switzerland.",
     duration: 40, weeklyGoal: 5, defaultMode: "soft", routeKm: 171,
-    routeGeo: [[0.5,0.85],[0.3,0.7],[0.25,0.45],[0.4,0.25],[0.6,0.22],[0.76,0.42],[0.72,0.66],[0.5,0.83]],
+    routeGeo: [[0.379,0.456],[0.288,0.589],[0.514,1.0],[0.712,0.021],[0.467,0.0],[0.381,0.427],[0.379,0.456]],
     milestones: [
       { km: 22, name: "Les Houches", blurb: "The first climb out of the valley, night falling." },
       { km: 50, name: "Courmayeur", blurb: "Over the border into Italy, halfway through the loop." },
@@ -668,7 +668,7 @@ const TEMPLATES = [
     id: "run-jogle", name: "Land's End to John o'Groats", emoji: "🏃", category: "expedition",
     description: "Run the entire length of Great Britain — 1,407 km from Land's End to John o'Groats. End to end.",
     duration: 90, weeklyGoal: 5, defaultMode: "soft", routeKm: 1407,
-    routeGeo: [[0.12,0.88],[0.28,0.72],[0.4,0.6],[0.52,0.46],[0.64,0.34],[0.82,0.14]],
+    routeGeo: [[0.443,1.0],[0.545,0.838],[0.557,0.602],[0.532,0.424],[0.53,0.0]],
     milestones: [
       { km: 1, name: "Land's End", blurb: "The far south-west tip of Britain -- the start line." },
       { km: 340, name: "Bristol", blurb: "Through the West Country and over the Severn." },
@@ -684,7 +684,7 @@ const TEMPLATES = [
     id: "run-trans-america", name: "Trans-America Run", emoji: "🏃", category: "expedition",
     description: "Run across the United States — 4,989 km from San Francisco to New York City.",
     duration: 180, weeklyGoal: 5, defaultMode: "soft", routeKm: 4989,
-    routeGeo: [[0.06,0.55],[0.22,0.48],[0.38,0.54],[0.54,0.46],[0.7,0.52],[0.88,0.42],[0.95,0.4]],
+    routeGeo: [[0.0,0.583],[0.339,0.485],[0.504,0.429],[0.666,0.536],[1.0,0.417]],
     milestones: [
       { km: 1, name: "San Francisco", blurb: "The Pacific at your back, a continent ahead." },
       { km: 1500, name: "Rocky Mountains", blurb: "Up over the Continental Divide, the great climb." },
@@ -702,7 +702,7 @@ const TEMPLATES = [
     id: "raid-pyrenees", name: "Pyrenees Crossing", emoji: "🚴", category: "expedition",
     description: "Cycle all 726 km of the legendary Pyrénées mountain route from the Atlantic coast to the Mediterranean.",
     duration: 45, weeklyGoal: 5, defaultMode: "soft", routeKm: 726,
-    routeGeo: [[0.06,0.6],[0.2,0.45],[0.35,0.55],[0.5,0.4],[0.65,0.55],[0.8,0.42],[0.94,0.5]],
+    routeGeo: [[0.0,0.229],[0.217,0.446],[0.667,0.734],[0.844,0.738],[1.0,0.771]],
     milestones: [
       { km: 1, name: "Hendaye — Atlantic", blurb: "Wheels wet in the Atlantic, the range ahead." },
       { km: 150, name: "First High Passes", blurb: "The Basque foothills give way to real cols." },
@@ -718,7 +718,7 @@ const TEMPLATES = [
     id: "trans-am-bike", name: "Trans-America Bike", emoji: "🚴", category: "expedition",
     description: "Ride the 6,771 km TransAm Bike Trail from Yorktown, Virginia to Astoria, Oregon.",
     duration: 180, weeklyGoal: 5, defaultMode: "soft", routeKm: 6771,
-    routeGeo: [[0.94,0.52],[0.78,0.46],[0.6,0.54],[0.44,0.44],[0.28,0.52],[0.12,0.44]],
+    routeGeo: [[1.0,0.76],[0.916,0.745],[0.673,0.669],[0.377,0.687],[0.0,0.24]],
     milestones: [
       { km: 1, name: "Yorktown, Virginia", blurb: "Atlantic tidewater -- the start of the crossing." },
       { km: 900, name: "Blue Ridge Parkway", blurb: "Rolling Appalachian ridges and long climbs." },
@@ -736,7 +736,7 @@ const TEMPLATES = [
     id: "thames-row", name: "Thames Row", emoji: "🚣", category: "expedition",
     description: "Row the full length of the Thames from its source in the Cotswolds to the open sea — 346 km.",
     duration: 30, weeklyGoal: 5, defaultMode: "soft", routeKm: 346,
-    routeGeo: [[0.06,0.5],[0.18,0.56],[0.3,0.48],[0.44,0.56],[0.58,0.5],[0.72,0.58],[0.88,0.5],[0.96,0.54]],
+    routeGeo: [[0.0,0.386],[0.278,0.315],[0.513,0.644],[0.699,0.614],[1.0,0.685]],
     milestones: [
       { km: 1, name: "The Source, Cotswolds", blurb: "A trickle in a quiet field -- the river's beginning." },
       { km: 75, name: "Oxford", blurb: "Past the spires and college boathouses." },
@@ -752,7 +752,7 @@ const TEMPLATES = [
     id: "danube-row", name: "Danube Row", emoji: "🚣", category: "expedition",
     description: "Row 2,860 km down the Danube from Germany to the Black Sea — through 10 countries.",
     duration: 120, weeklyGoal: 5, defaultMode: "soft", routeKm: 2860,
-    routeGeo: [[0.05,0.4],[0.18,0.46],[0.32,0.42],[0.46,0.5],[0.6,0.44],[0.74,0.52],[0.88,0.46],[0.96,0.52]],
+    routeGeo: [[0.0,0.277],[0.37,0.239],[0.496,0.342],[0.66,0.761],[1.0,0.674]],
     milestones: [
       { km: 1, name: "Donaueschingen, Germany", blurb: "The Black Forest spring where the Danube rises." },
       { km: 360, name: "Vienna", blurb: "The imperial city on the river's banks." },
