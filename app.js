@@ -414,8 +414,6 @@ const TEMPLATES = [
     ],
     habits: [
       { id:"dist",      title:"Log distance",  emoji:"🏃", quip:"Walk, run, cycle, swim or row — it all counts.", type:"distance", points:1, unit:"km" },
-      { id:"exp-sleep", title:"Sleep 7+ hours", emoji:"😴", quip:"Recovery is part of the journey.", type:"binary", points:2 },
-      { id:"exp-fuel",  title:"Fuel well today", emoji:"🍽️", quip:"Protein + carbs. Serious ground ahead.", type:"binary", points:2 },
     ],
   },
   {
@@ -432,8 +430,6 @@ const TEMPLATES = [
     ],
     habits: [
       { id:"dist",      title:"Log distance",  emoji:"🥾", quip:"Every loch and glen earned one step at a time.", type:"distance", points:1, unit:"km" },
-      { id:"exp-sleep", title:"Sleep 7+ hours", emoji:"😴", quip:"Recovery is part of the journey.", type:"binary", points:2 },
-      { id:"exp-fuel",  title:"Fuel well today", emoji:"🍽️", quip:"Protein + carbs. Serious ground ahead.", type:"binary", points:2 },
     ],
   },
   {
@@ -450,8 +446,6 @@ const TEMPLATES = [
     ],
     habits: [
       { id:"dist",      title:"Log distance",  emoji:"🥾", quip:"Three countries. One mountain. Endless views.", type:"distance", points:1, unit:"km" },
-      { id:"exp-sleep", title:"Sleep 7+ hours", emoji:"😴", quip:"Recovery is part of the journey.", type:"binary", points:2 },
-      { id:"exp-fuel",  title:"Fuel well today", emoji:"🍽️", quip:"Protein + carbs. Serious ground ahead.", type:"binary", points:2 },
     ],
   },
   {
@@ -468,8 +462,6 @@ const TEMPLATES = [
     ],
     habits: [
       { id:"dist",      title:"Log distance",  emoji:"🥾", quip:"The Range of Light. Worth every step.", type:"distance", points:1, unit:"km" },
-      { id:"exp-sleep", title:"Sleep 7+ hours", emoji:"😴", quip:"Recovery is part of the journey.", type:"binary", points:2 },
-      { id:"exp-fuel",  title:"Fuel well today", emoji:"🍽️", quip:"Protein + carbs. Serious ground ahead.", type:"binary", points:2 },
     ],
   },
   {
@@ -486,8 +478,6 @@ const TEMPLATES = [
     ],
     habits: [
       { id:"dist",      title:"Log distance",  emoji:"🚶", quip:"Every step brings you closer to Santiago.", type:"distance", points:1, unit:"km" },
-      { id:"exp-sleep", title:"Sleep 7+ hours", emoji:"😴", quip:"Recovery is part of the journey.", type:"binary", points:2 },
-      { id:"exp-fuel",  title:"Fuel well today", emoji:"🍽️", quip:"Protein + carbs. Serious ground ahead.", type:"binary", points:2 },
     ],
   },
   {
@@ -504,8 +494,6 @@ const TEMPLATES = [
     ],
     habits: [
       { id:"dist",      title:"Log distance",  emoji:"🥾", quip:"Miles in the legs. Wilderness in the soul.", type:"distance", points:1, unit:"km" },
-      { id:"exp-sleep", title:"Sleep 7+ hours", emoji:"😴", quip:"Recovery is part of the journey.", type:"binary", points:2 },
-      { id:"exp-fuel",  title:"Fuel well today", emoji:"🍽️", quip:"Protein + carbs. Serious ground ahead.", type:"binary", points:2 },
     ],
   },
   {
@@ -522,8 +510,6 @@ const TEMPLATES = [
     ],
     habits: [
       { id:"dist",      title:"Log distance",  emoji:"🚴", quip:"Clip in. Every km is a stage.", type:"distance", points:1, unit:"km" },
-      { id:"exp-sleep", title:"Sleep 7+ hours", emoji:"😴", quip:"Recovery is part of the journey.", type:"binary", points:2 },
-      { id:"exp-fuel",  title:"Fuel well today", emoji:"🍽️", quip:"Protein + carbs. Serious ground ahead.", type:"binary", points:2 },
     ],
   },
   {
@@ -540,8 +526,6 @@ const TEMPLATES = [
     ],
     habits: [
       { id:"dist",      title:"Log distance",  emoji:"🚗", quip:"Get your kicks. Road is open.", type:"distance", points:1, unit:"km" },
-      { id:"exp-sleep", title:"Sleep 7+ hours", emoji:"😴", quip:"Recovery is part of the journey.", type:"binary", points:2 },
-      { id:"exp-fuel",  title:"Fuel well today", emoji:"🍽️", quip:"Protein + carbs. Serious ground ahead.", type:"binary", points:2 },
     ],
   },
   {
@@ -558,8 +542,6 @@ const TEMPLATES = [
     ],
     habits: [
       { id:"dist",      title:"Log distance",  emoji:"🚣", quip:"The river never stops. Neither do you.", type:"distance", points:1, unit:"km" },
-      { id:"exp-sleep", title:"Sleep 7+ hours", emoji:"😴", quip:"Recovery is part of the journey.", type:"binary", points:2 },
-      { id:"exp-fuel",  title:"Fuel well today", emoji:"🍽️", quip:"Protein + carbs. Serious ground ahead.", type:"binary", points:2 },
     ],
   },
   {
@@ -579,8 +561,6 @@ const TEMPLATES = [
     ],
     habits: [
       { id:"dist",      title:"Log distance",  emoji:"🥾", quip:"Every step north is progress.", type:"distance", points:1, unit:"km" },
-      { id:"exp-sleep", title:"Sleep 7+ hours", emoji:"😴", quip:"Recovery is part of the journey.", type:"binary", points:2 },
-      { id:"exp-fuel",  title:"Fuel well today", emoji:"🍽️", quip:"Protein + carbs. Serious ground ahead.", type:"binary", points:2 },
     ],
   },
   {
@@ -598,8 +578,6 @@ const TEMPLATES = [
     ],
     habits: [
       { id:"floors",    title:"Floors climbed today", emoji:"🏢", quip:"One floor at a time. 2,903 to go.", type:"distance", points:1, unit:"floors" },
-      { id:"exp-sleep", title:"Sleep 7+ hours",       emoji:"😴", quip:"Recovery is part of the journey.", type:"binary", points:2 },
-      { id:"exp-fuel",  title:"Fuel well today",       emoji:"🍽️", quip:"Protein + carbs. Serious ground ahead.", type:"binary", points:2 },
     ],
   },
   {
@@ -617,8 +595,6 @@ const TEMPLATES = [
     ],
     habits: [
       { id:"floors",    title:"Floors climbed today", emoji:"🏢", quip:"One floor at a time. 1,934 to go.", type:"distance", points:1, unit:"floors" },
-      { id:"exp-sleep", title:"Sleep 7+ hours",       emoji:"😴", quip:"Recovery is part of the journey.", type:"binary", points:2 },
-      { id:"exp-fuel",  title:"Fuel well today",       emoji:"🍽️", quip:"Protein + carbs. Serious ground ahead.", type:"binary", points:2 },
     ],
   },
   {
@@ -635,8 +611,6 @@ const TEMPLATES = [
     ],
     habits: [
       { id:"floors",    title:"Floors climbed today", emoji:"🏢", quip:"One floor at a time. 1,577 to go.", type:"distance", points:1, unit:"floors" },
-      { id:"exp-sleep", title:"Sleep 7+ hours",       emoji:"😴", quip:"Recovery is part of the journey.", type:"binary", points:2 },
-      { id:"exp-fuel",  title:"Fuel well today",       emoji:"🍽️", quip:"Protein + carbs. Serious ground ahead.", type:"binary", points:2 },
     ],
   },
 
@@ -655,8 +629,6 @@ const TEMPLATES = [
     ],
     habits: [
       { id:"cu-run",    title:"Log running distance", emoji:"🏃", quip:"Every step toward Durban.", type:"distance", points:1, unit:"km" },
-      { id:"exp-sleep", title:"Sleep 7+ hours",       emoji:"😴", quip:"Recovery is part of the journey.", type:"binary", points:2 },
-      { id:"exp-fuel",  title:"Fuel well today",       emoji:"🍽️", quip:"Protein + carbs. Serious ground ahead.", type:"binary", points:2 },
     ]
   },
   {
@@ -674,8 +646,6 @@ const TEMPLATES = [
     ],
     habits: [
       { id:"utmb-run",  title:"Log running distance", emoji:"🏃", quip:"The mountains are waiting.", type:"distance", points:1, unit:"km" },
-      { id:"exp-sleep", title:"Sleep 7+ hours",       emoji:"😴", quip:"Recovery is part of the journey.", type:"binary", points:2 },
-      { id:"exp-fuel",  title:"Fuel well today",       emoji:"🍽️", quip:"Protein + carbs. Serious ground ahead.", type:"binary", points:2 },
     ]
   },
   {
@@ -692,8 +662,6 @@ const TEMPLATES = [
     ],
     habits: [
       { id:"dist",      title:"Log distance",  emoji:"🏃", quip:"Every km counts. Log it.", type:"distance", points:1, unit:"km" },
-      { id:"exp-sleep", title:"Sleep 7+ hours", emoji:"😴", quip:"Recovery is part of the journey.", type:"binary", points:2 },
-      { id:"exp-fuel",  title:"Fuel well today", emoji:"🍽️", quip:"Protein + carbs. Serious ground ahead.", type:"binary", points:2 },
     ],
   },
   {
@@ -710,8 +678,6 @@ const TEMPLATES = [
     ],
     habits: [
       { id:"dist",      title:"Log distance",  emoji:"🏃", quip:"North. Always north.", type:"distance", points:1, unit:"km" },
-      { id:"exp-sleep", title:"Sleep 7+ hours", emoji:"😴", quip:"Recovery is part of the journey.", type:"binary", points:2 },
-      { id:"exp-fuel",  title:"Fuel well today", emoji:"🍽️", quip:"Protein + carbs. Serious ground ahead.", type:"binary", points:2 },
     ],
   },
   {
@@ -728,8 +694,6 @@ const TEMPLATES = [
     ],
     habits: [
       { id:"dist",      title:"Log distance",  emoji:"🏃", quip:"Coast to coast. One step at a time.", type:"distance", points:1, unit:"km" },
-      { id:"exp-sleep", title:"Sleep 7+ hours", emoji:"😴", quip:"Recovery is part of the journey.", type:"binary", points:2 },
-      { id:"exp-fuel",  title:"Fuel well today", emoji:"🍽️", quip:"Protein + carbs. Serious ground ahead.", type:"binary", points:2 },
     ],
   },
 
@@ -748,8 +712,6 @@ const TEMPLATES = [
     ],
     habits: [
       { id:"dist",      title:"Log distance",  emoji:"🚴", quip:"Pedal. Climb. Breathe.", type:"distance", points:1, unit:"km" },
-      { id:"exp-sleep", title:"Sleep 7+ hours", emoji:"😴", quip:"Recovery is part of the journey.", type:"binary", points:2 },
-      { id:"exp-fuel",  title:"Fuel well today", emoji:"🍽️", quip:"Protein + carbs. Serious ground ahead.", type:"binary", points:2 },
     ],
   },
   {
@@ -766,8 +728,6 @@ const TEMPLATES = [
     ],
     habits: [
       { id:"dist",      title:"Log distance",  emoji:"🚴", quip:"Every state. Every climb. No shortcuts.", type:"distance", points:1, unit:"km" },
-      { id:"exp-sleep", title:"Sleep 7+ hours", emoji:"😴", quip:"Recovery is part of the journey.", type:"binary", points:2 },
-      { id:"exp-fuel",  title:"Fuel well today", emoji:"🍽️", quip:"Protein + carbs. Serious ground ahead.", type:"binary", points:2 },
     ],
   },
 
@@ -786,8 +746,6 @@ const TEMPLATES = [
     ],
     habits: [
       { id:"dist",      title:"Log distance",  emoji:"🚣", quip:"Pull. The river knows the way.", type:"distance", points:1, unit:"km" },
-      { id:"exp-sleep", title:"Sleep 7+ hours", emoji:"😴", quip:"Recovery is part of the journey.", type:"binary", points:2 },
-      { id:"exp-fuel",  title:"Fuel well today", emoji:"🍽️", quip:"Protein + carbs. Serious ground ahead.", type:"binary", points:2 },
     ],
   },
   {
@@ -804,8 +762,6 @@ const TEMPLATES = [
     ],
     habits: [
       { id:"dist",      title:"Log distance",  emoji:"🚣", quip:"Downstream. Europe unrolling behind you.", type:"distance", points:1, unit:"km" },
-      { id:"exp-sleep", title:"Sleep 7+ hours", emoji:"😴", quip:"Recovery is part of the journey.", type:"binary", points:2 },
-      { id:"exp-fuel",  title:"Fuel well today", emoji:"🍽️", quip:"Protein + carbs. Serious ground ahead.", type:"binary", points:2 },
     ],
   },];
 
@@ -2687,41 +2643,34 @@ function renderToday() {
       </div>`;
     })()}
 
-    <section class="today-stage panel">
-      ${renderRing(info, day, streak, challenge)}
-      ${isToday ? renderStreakFreezeUI(challenge) : ""}
-      ${renderCompleteBanner(day, info, challenge, dayNumber, totalDays, isToday)}
-    </section>
-
-    <section>
-      <div class="section-head">
-        ${challenge.habits.some(h => h.type === "distance")
-          ? `<div class="section-label" style="margin:0">Distance</div>`
-          : `<div class="section-label" style="margin:0">Tasks</div>
-             <div style="font-size:12px;font-weight:500;color:var(--text-dim)">${_savedFlash ? `<span class="saved-flash">Saved ✓</span>` : dayNumber === 1 && info.done === 0 ? "Tap to log your first day →" : `${info.done} / ${info.total}`}</div>`}
-      </div>
-      <div class="habit-list">
-        ${challenge.habits.map(h => renderHabit(h, day, challenge)).join("")}
-      </div>
-    </section>
-    ${renderChallengeMetricChart(challenge)}
-    ${isToday ? renderAlmostThereBadge(challenge, streak) : ""}
-    ${(() => {
-      // Only one nudge at a time: backup (Day 7+, no account) beats notif nudge
-      if (!isToday) return "";
-      if (shouldShowBackupNudge(challenge)) return renderBackupNudge(challenge);
-      if (dayNumber >= 3 && !_notifNudgeDismissed && ("Notification" in window) && Notification.permission === "default") {
-        return `<div class="notif-nudge" data-notif-nudge>
-          <span class="notif-nudge-icon"><i class="ti ti-bell"></i></span>
-          <span class="notif-nudge-text">Never miss a day — <button class="notif-nudge-link" data-request-notif-permission>enable reminders</button></span>
-          <button class="notif-nudge-close" data-dismiss-notif-nudge aria-label="Dismiss">×</button>
-        </div>`;
-      }
-      return "";
-    })()}
     ${(() => {
       const tpl = challenge.templateId ? TEMPLATES.find(t=>t.id===challenge.templateId) : null;
-      return challengeRouteKm(challenge) ? renderRouteProgress(challenge, tpl) : "";
+      const isDist = challenge.habits.some(h => h.type === "distance");
+      const stage = `<section class="today-stage panel">${renderRing(info, day, streak, challenge)}${isToday ? renderStreakFreezeUI(challenge) : ""}${renderCompleteBanner(day, info, challenge, dayNumber, totalDays, isToday)}</section>`;
+      const logSection = `<section>
+      <div class="section-head">${isDist
+        ? `<div class="section-label" style="margin:0">Distance</div>`
+        : `<div class="section-label" style="margin:0">Tasks</div>
+           <div style="font-size:12px;font-weight:500;color:var(--text-dim)">${_savedFlash ? `<span class="saved-flash">Saved ✓</span>` : dayNumber === 1 && info.done === 0 ? "Tap to log your first day →" : `${info.done} / ${info.total}`}</div>`}</div>
+      <div class="habit-list">${challenge.habits.map(h => renderHabit(h, day, challenge)).join("")}</div>
+    </section>`;
+      const map = challengeRouteKm(challenge) ? renderRouteProgress(challenge, tpl) : "";
+      const extras = `${renderChallengeMetricChart(challenge)}${isToday ? renderAlmostThereBadge(challenge, streak) : ""}`;
+      const nudge = (() => {
+        if (!isToday) return "";
+        if (shouldShowBackupNudge(challenge)) return renderBackupNudge(challenge);
+        if (dayNumber >= 3 && !_notifNudgeDismissed && ("Notification" in window) && Notification.permission === "default") {
+          return `<div class="notif-nudge" data-notif-nudge>
+            <span class="notif-nudge-icon"><i class="ti ti-bell"></i></span>
+            <span class="notif-nudge-text">Never miss a day — <button class="notif-nudge-link" data-request-notif-permission>enable reminders</button></span>
+            <button class="notif-nudge-close" data-dismiss-notif-nudge aria-label="Dismiss">×</button>
+          </div>`;
+        }
+        return "";
+      })();
+      return isDist
+        ? logSection + map + stage + extras + nudge
+        : stage + logSection + extras + nudge + map;
     })()}
   </main>`;
 }
@@ -2841,7 +2790,7 @@ function renderNoChallenge() {
           <div class="cc-emoji"><i class="ti ${iconForChallenge(c)}"></i></div>
           <div class="cc-info">
             <div class="cc-name">${c.name}</div>
-            <div class="cc-meta">Starts ${c.startDate} � ${diffDays(today, c.startDate)} day${diffDays(today,c.startDate)===1?"":"s"} away</div>
+            <div class="cc-meta">Starts ${c.startDate} · ${diffDays(today, c.startDate)} day${diffDays(today,c.startDate)===1?"":"s"} away</div>
           </div>
           <div class="cc-right"><div class="cc-status" style="color:var(--text-dim)">upcoming</div></div>
         </div>
@@ -2919,12 +2868,6 @@ function renderRing(info, day, streak, challenge) {
       <div class="ring-stat-value">${challengePts}</div>
       <div class="ring-stat-label">points</div>
     </div>`}
-    <div class="ring-stat-sep"></div>
-    <div class="ring-stat">
-      <div class="ring-stat-value${streak>=7?' streak-hero':''}">${streak}${gracePip?`<i class="ti ti-shield-check ring-stat-mark" title="Grace day used yesterday — don't miss today!"></i>`:""}${streak>=7?`<i class="ti ti-flame ring-stat-mark"></i>`:""}</div>
-      <div class="ring-stat-label">day streak${gracePip?`<span style="display:block;font-size:9px;color:#ffcc44">grace used</span>`:""}</div>
-      ${challenge && getStreakMultiplier(challenge) > 1.0 ? `<div class="ring-mult-chip">${getStreakMultiplier(challenge).toFixed(2).replace(/\.?0+$/,"")}× pts</div>` : ""}
-    </div>
   </div>
   ${isPerfect ? `<div class="perfect-day-chip"><i class="ti ti-check"></i> PERFECT DAY</div>` : ""}
   ${day.comebackBonus ? `<div class="perfect-day-chip comeback-chip"><i class="ti ti-refresh"></i> COMEBACK DAY</div>` : ""}`;
@@ -2969,10 +2912,10 @@ function renderModeSelector(day, challenge) {
   </div>`;
   }
   const restLabel = todayIsRest
-    ? "Flex Day � active"
+    ? "Flex Day · active"
     : budgetExhausted
-      ? `Flex Day � none left`
-      : `Flex Day � ${jokersLeft} flex ${jokersLeft === 1 ? "day" : "days"} left`;
+      ? `Flex Day · none left`
+      : `Flex Day · ${jokersLeft} flex ${jokersLeft === 1 ? "day" : "days"} left`;
   const restDisabled = budgetExhausted ? "mode-chip--disabled" : "";
   const activeChip   = todayIsRest ? "mode-chip--rest-active" : "mode-chip--active";
   return `
@@ -3562,7 +3505,7 @@ function drawShareCard(challenge, isDone) {
   const _scLevel = getLevelInfo(state.xp);
   ctx.fillStyle = "rgba(154,154,152,0.6)";
   ctx.font      = `400 ${Math.round(s * 0.03)}px 'Arial', sans-serif`;
-  ctx.fillText(`FIELD LOG � Lv.${_scLevel.level} ${_scLevel.name}`, s / 2, s * 0.81);
+  ctx.fillText(`FIELD LOG · Lv.${_scLevel.level} ${_scLevel.name}`, s / 2, s * 0.81);
 
   ctx.fillStyle = "rgba(154,154,152,0.4)";
   ctx.font      = `700 ${Math.round(s * 0.028)}px 'Arial', sans-serif`;
@@ -3642,7 +3585,7 @@ function renderCompletionModal(c) {
       <button class="chain-cta" data-start-suggested="${nextT.id}">
         <span class="chain-cta-pre">Continue your journey</span>
         <span class="chain-cta-main"><i class="ti ${challengeIcon(nextT)}"></i> ${nextT.name} -></span>
-        <span class="chain-cta-sub">${nextT.duration} days � Level up</span>
+        <span class="chain-cta-sub">${nextT.duration} days · Level up</span>
       </button>` : ""}
       ${(() => {
         const restDays = totalDays >= 75 ? 5 : totalDays >= 30 ? 3 : 2;
@@ -3833,7 +3776,7 @@ function renderChallengeDetail(c) {
         <span class="cnb-emoji"><i class="ti ${challengeIcon(nextChainT)}"></i></span>
         <div class="cnb-info">
           <div class="cnb-name">${nextChainT.name}</div>
-          <div class="cnb-meta">${nextChainT.duration} days � Level up</div>
+          <div class="cnb-meta">${nextChainT.duration} days · Level up</div>
         </div>
         <span class="cnb-arrow">-></span>
       </div>
@@ -3858,7 +3801,7 @@ function renderChallengeDetail(c) {
           const routePct = routeKm ? Math.min(100, Math.round((kmTotal / routeKm) * 100)) : null;
           return `<div class="habit-preview-item">
             <span class="hpi-title">${esc(h.title)}</span>
-            <span class="hpi-rate ${routePct === 0 || daysLogged === 0 ? "hpi-rate--zero" : routePct === 100 ? "hpi-rate--done" : "hpi-rate--progress"}">${kmTotal.toFixed(1)} km${routePct !== null ? ` � ${routePct}% of route` : ` � ${daysLogged}d logged`}</span>
+            <span class="hpi-rate ${routePct === 0 || daysLogged === 0 ? "hpi-rate--zero" : routePct === 100 ? "hpi-rate--done" : "hpi-rate--progress"}">${kmTotal.toFixed(1)} km${routePct !== null ? ` · ${routePct}% of route` : ` · ${daysLogged}d logged`}</span>
           </div>`;
         }
         if (h.type === "measurement") {
@@ -5668,7 +5611,7 @@ function bindEvents() {
     const totalDays = diffDays(_shareModalChallenge.startDate, _shareModalChallenge.endDate)+1;
     const dayNum    = challengeDayNumber(_shareModalChallenge);
     const text = _shareModalDone
-      ? `I just completed the ${_shareModalChallenge.name} challenge on Endur.\n${totalDays} days � ${totalPts} pts � ${streak}-day streak.\nOutlast everything.\n${SHARE_URL}`
+      ? `I just completed the ${_shareModalChallenge.name} challenge on Endur.\n${totalDays} days · ${totalPts} pts · ${streak}-day streak.\nOutlast everything.\n${SHARE_URL}`
       : `Day ${dayNum} of my ${_shareModalChallenge.name} challenge - ${streak}-day streak.\nBuilding tasks one day at a time.\n${SHARE_URL}`;
     if (navigator.share) {
       fetch(_shareCardDataUrl).then(r=>r.blob()).then(blob => {
@@ -5695,7 +5638,7 @@ function bindEvents() {
     const totalDays = diffDays(_shareModalChallenge.startDate, _shareModalChallenge.endDate)+1;
     const dayNum    = challengeDayNumber(_shareModalChallenge);
     const text = _shareModalDone
-      ? `I just completed the ${_shareModalChallenge.name} challenge on Endur.\n${totalDays} days � ${totalPts} pts � ${streak}-day streak.\nOutlast everything.\n${SHARE_URL}`
+      ? `I just completed the ${_shareModalChallenge.name} challenge on Endur.\n${totalDays} days · ${totalPts} pts · ${streak}-day streak.\nOutlast everything.\n${SHARE_URL}`
       : `Day ${dayNum} of my ${_shareModalChallenge.name} challenge - ${streak}-day streak.\nBuilding tasks one day at a time.\n${SHARE_URL}`;
     navigator.clipboard?.writeText(text).then(() => showToast("Copied!")).catch(() => showToast(text));
   });
