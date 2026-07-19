@@ -5833,14 +5833,14 @@ details[open] .badge-locked-summary::before {
 
 /* -- Endur Field -- This Week block -------------------------------------- */
 .this-week { padding:14px 16px; margin-bottom:14px; }
-.tw-top { display:flex; align-items:center; justify-content:space-between; margin-bottom:10px; }
-.tw-label { font-size:11px; font-weight:500; letter-spacing:2px; text-transform:uppercase; color:var(--text-dim); }
-.tw-streak { font-size:11px; font-weight:500; letter-spacing:.5px; text-transform:uppercase; color:var(--accent); }
-.tw-streak i, .tw-won i { font-size:12px; vertical-align:-1px; }
-.tw-main { display:flex; align-items:baseline; gap:8px; margin-bottom:9px; }
-.tw-done { font-size:24px; font-weight:500; color:var(--text); font-variant-numeric:tabular-nums; }
-.tw-goal { font-size:14px; color:var(--text-dim); font-variant-numeric:tabular-nums; }
-.tw-togo { margin-left:auto; font-size:11px; letter-spacing:.5px; text-transform:uppercase; color:var(--text-faint); }
-.tw-won { margin-left:auto; font-size:11px; letter-spacing:.5px; text-transform:uppercase; color:var(--accent); }
+.tw-label { font-size:11px; font-weight:500; letter-spacing:2px; text-transform:uppercase; color:var(--text-dim); margin-bottom:8px; }
+.tw-main { font-size:22px; font-weight:500; color:var(--text); font-variant-numeric:tabular-nums; margin-bottom:9px; line-height:1.2; overflow-wrap:break-word; }
+.tw-unit { font-size:14px; font-weight:500; color:var(--text-dim); }
+.tw-goal { font-size:12px; font-weight:500; color:var(--text-faint); }
 .tw-track { height:4px; background:var(--track); border-radius:2px; overflow:hidden; }
 .tw-fill { height:100%; background:var(--accent); border-radius:2px; transition:width .5s; }
+.tw-meta { display:flex; flex-wrap:wrap; align-items:center; gap:6px; margin-top:10px; font-size:11px; font-weight:500; letter-spacing:.4px; text-transform:uppercase; }
+.tw-dot { color:var(--text-faint); opacity:.5; }
+.tw-togo { color:var(--text-faint); }
+.tw-won, .tw-streak { color:var(--accent); }
+.tw-won i, .tw-streak i { font-size:12px; vertical-align:-1px; }

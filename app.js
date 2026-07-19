@@ -1793,17 +1793,18 @@ function getWeeklyProgress(c) {
 function renderThisWeek(c) {
   const w = getWeeklyProgress(c);
   if (!w) return "";
+  const metaBits = [
+    w.won
+      ? `<span class="tw-won"><i class="ti ti-check"></i> Weekly goal reached</span>`
+      : `<span class="tw-togo">${w.toGo} ${w.unit} to reach this week's goal</span>`,
+    w.streak > 0 ? `<span class="tw-streak"><i class="ti ti-flame"></i> ${w.streak}-week streak</span>` : "",
+  ].filter(Boolean);
   return `
   <section class="this-week panel">
-    <div class="tw-top">
-      <span class="tw-label">This week</span>
-      ${w.streak > 0 ? `<span class="tw-streak"><i class="ti ti-flame"></i> ${w.streak}-week streak</span>` : ""}
-    </div>
-    <div class="tw-main">
-      <span class="tw-done">${w.done}</span><span class="tw-goal"> / ${w.goal} ${w.unit}</span>
-      ${w.won ? `<span class="tw-won"><i class="ti ti-check"></i> week won</span>` : `<span class="tw-togo">${w.toGo} ${w.unit} to go</span>`}
-    </div>
+    <div class="tw-label">This week</div>
+    <div class="tw-main">${w.done}<span class="tw-unit"> ${w.unit}</span><span class="tw-goal"> of ${w.goal} ${w.unit} goal</span></div>
     <div class="tw-track"><div class="tw-fill" style="width:${w.pct}%"></div></div>
+    <div class="tw-meta">${metaBits.join(`<span class="tw-dot">·</span>`)}</div>
   </section>`;
 }
 
