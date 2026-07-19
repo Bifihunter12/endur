@@ -2665,8 +2665,11 @@ function renderToday() {
           const dh = challenge.habits.find(h => h.type === "distance");
           const ck = dh ? challengeRouteKm(challenge) : null;
           if (dh && ck) {
-            const tot = challengeTotalKm(challenge), u = unitLabelFor(dh.unit);
-            const pct = Math.min(100, Math.round(tot/ck*100)), rem = Math.round(Math.max(0, ck-tot)*10)/10;
+            const totNative = challengeTotalKm(challenge), u = unitLabelFor(dh.unit);
+            const isFl = dh.unit === "floors", f = u === "mi" ? 0.621371 : 1;
+            const r = v => isFl ? Math.round(v * f) : Math.round(v * f * 10) / 10;
+            const pct = Math.min(100, Math.round(totNative/ck*100));
+            const tot = r(totNative), rem = r(Math.max(0, ck-totNative));
             return `<span>${pct}%</span><span class="hero-stat-dot">·</span><span>${tot} ${u} banked</span><span class="hero-stat-dot">·</span><span>${rem} ${u} to go</span><span class="hero-stat-dot">·</span>`;
           }
           return journeyPct !== null ? `<span>${journeyPct}%</span><span class="hero-stat-dot">·</span>` : "";
