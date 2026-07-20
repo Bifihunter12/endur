@@ -2750,30 +2750,7 @@ function renderTodayAll(active) {
       <div class="atb-title"><i class="ti ti-list-check"></i> All Active Challenges</div>
       <div class="atb-stats">${totalDone} / ${totalHabits} tasks done today · ${allPct}%</div>
     </div>
-    ${active.map(c => {
-      const day = c.days[effDate] || normalizeDay({});
-      const info = completionInfo(c, day);
-      const tpl = c.templateId ? TEMPLATES.find(t=>t.id===c.templateId) : null;
-      const dots = c.habits
-        .filter(h => h.type !== "distance")
-        .map(h => `<span class="atc-dot${day.done.includes(h.id)?" atc-dot--done":""}">${day.done.includes(h.id)?"✓":""}</span>`)
-        .join("");
-      return `
-      <button class="all-today-card" data-today-challenge="${c.id}">
-        <div class="atc-row">
-          <span class="atc-emoji"><i class="ti ${tpl?challengeIcon(tpl):"ti-target"}"></i></span>
-          <div class="atc-info">
-            <div class="atc-name">${esc(c.name)}</div>
-            <div class="atc-dots">${dots}</div>
-          </div>
-          <div class="atc-right">
-            <div class="atc-pct${info.percent===100?" atc-done":""}">${info.percent}%</div>
-            <div class="atc-cta">Log →</div>
-          </div>
-        </div>
-        <div class="cc-track"><div class="cc-fill${info.percent===100?" cc-fill--done":""}" style="width:${info.percent}%"></div></div>
-      </button>`;
-    }).join("")}
+    ${active.map(c => renderChallengeCard(c)).join("")}
     ${allPct === 100 ? `
     <div class="all-done-today">
       <div class="all-done-today-icon"><i class="ti ti-trophy"></i></div>
@@ -3908,6 +3885,7 @@ function renderChallengeDetail(c) {
       <button class="secondary-button" data-pause-challenge="${c.id}">${c.status==="paused"?`<i class="ti ti-player-play"></i> Resume`:`<i class="ti ti-player-pause"></i> Pause`}</button>
       ${(c.status==="active"&&!c.noEndDate)?`<button class="secondary-button" data-extend-challenge="${c.id}"><i class="ti ti-calendar-plus"></i> Extend +2 weeks</button>`:""}
       <button class="secondary-button danger" data-abandon-challenge="${c.id}">Abandon</button>
+      <button class="secondary-button danger" data-delete-challenge="${c.id}"><i class="ti ti-trash"></i> Delete</button>
     </div>`:""}
     ${(c.status==="completed"||c.status==="failed")?`
     <div style="margin-top:16px">
@@ -6297,6 +6275,7 @@ function logDistance(habitId, km) {
   saveState();
   checkBadges(c);
   checkMilestones(c);
+  updateChallengeStatuses();
   render();
 }
 
